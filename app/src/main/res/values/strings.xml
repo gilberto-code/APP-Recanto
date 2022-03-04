@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">Recanto</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string-array name="especie_array">
+        <item>Cachorro</item>
+        <item>Gato</item>
+        <item>Outro</item>
+    </string-array>
+
+    <string-array name="porte_array">
+        <item>Mini</item>
+        <item>Pequeno</item>
+        <item>Médio</item>
+        <item>Grande</item>
+        <item>Gigante</item>
+    </string-array>
+    <string-array name="temperamento_array">
+        <item>Medroso</item>
+        <item>Agressivo</item>
+        <item>Calmo</item>
+        <item>Nervoso</item>
+        <item>Estressável</item>
+        <item>Tímido</item>
+        <item>Ousado</item>
+        <item>Corajoso</item>
+        <item>Curioso</item>
+    </string-array>
+
+    <string-array name="bairro_array">
+        <item>1° de maio</item>
+        <item>Alto Chalé</item>
+        <item>Alto São Francisco</item>
+        <item>Amália Rodrigues</item>
+        <item>Bandeirantes</item>
+        <item>Belvedere</item>
+        <item>Campus Alto Paraopeba</item>
+        <item>Carreiras</item>
+        <item>Castiliano</item>
+        <item>Centro</item>
+        <item>Estiva</item>
+        <item>Inconfidentes</item>
+        <item>Itatiaia</item>
+        <item>João Gote</item>
+        <item>Luzia Augusta</item>
+        <item>Nova Serrana</item>
+        <item>Novo Horizonte</item>
+        <item>Olaria</item>
+        <item>Pioneiros</item>
+        <item>Pires</item>
+        <item>Siderurgia</item>
+        <item>Soledade</item>
+        <item>Tiradentes</item>
+        <item>Zona Rural</item>
+
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

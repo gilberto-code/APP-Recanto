@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activitys.DadosAnimal"
+    android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:navigationIcon="?attr/homeAsUpIndicator" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:padding="4dp"
+                android:text="Nome:"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <TextView
+                android:id="@+id/textNomeAnimalDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:padding="4dp"
+                android:text="Nome"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="24dp"
+                tools:layout_editor_absoluteY="47dp" />
+
+            <ImageView
+                android:id="@+id/imagemAnimalDesc"
+                android:layout_width="280dp"
+                android:layout_height="180dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:padding="4dp"
+                android:src="@color/colorAccent"
+                tools:layout_editor_absoluteX="24dp"
+                tools:layout_editor_absoluteY="88dp" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Espécie:"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_editor_absoluteX="8dp" />
+
+            <TextView
+                android:id="@+id/especieAnimalDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Espécie"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="24dp"
+                tools:layout_editor_absoluteY="330dp" />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Idade:"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_editor_absoluteX="8dp" />
+
+            <TextView
+                android:id="@+id/idadeAnimalDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="8dp"
+                android:padding="2dp"
+                android:text="Idade"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="24dp"
+                tools:layout_editor_absoluteY="404dp" />
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Porte:"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="560dp" />
+
+            <TextView
+                android:id="@+id/porteAnimalDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="8dp"
+                android:padding="2dp"
+                android:text="Porte"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="60dp"
+                tools:layout_editor_absoluteY="703dp" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Raça:"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_editor_absoluteX="8dp" />
+
+            <TextView
+                android:id="@+id/racaAnimalDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="8dp"
+                android:padding="2dp"
+                android:text="Raça"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="24dp"
+                tools:layout_editor_absoluteY="480dp" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Cor:"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/corAnimalDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="8dp"
+                android:padding="2dp"
+                android:text="Cor"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="527dp" />
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Sexo:"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_editor_absoluteX="170dp"
+                tools:layout_editor_absoluteY="276dp" />
+
+            <TextView
+                android:id="@+id/sexoAnimalDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="8dp"
+                android:padding="2dp"
+                android:text="Sexo"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="189dp"
+                tools:layout_editor_absoluteY="752dp" />
+
+            <TextView
+                android:id="@+id/textView42"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Prenha:"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_editor_absoluteX="170dp"
+                tools:layout_editor_absoluteY="276dp" />
+
+            <TextView
+                android:id="@+id/prenhaAnimalDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Prenha"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="189dp"
+                tools:layout_editor_absoluteY="752dp" />
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Temperamento:"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="560dp" />
+
+            <TextView
+                android:id="@+id/temperamentoAnimalDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="8dp"
+                android:padding="2dp"
+                android:text="Temperamento"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="60dp"
+                tools:layout_editor_absoluteY="758dp" />
+
+            <TextView
+                android:id="@+id/textView36"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Bairro Encontrado:"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="560dp" />
+
+            <TextView
+                android:id="@+id/bairroAnimalDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Bairro Encontrado"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="60dp"
+                tools:layout_editor_absoluteY="758dp" />
+
+            <TextView
+                android:id="@+id/textView37"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Vacinado:"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="560dp" />
+
+            <TextView
+                android:id="@+id/vacinadoAnimalDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Vacinado"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="60dp"
+                tools:layout_editor_absoluteY="758dp" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Castrado:"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="560dp" />
+
+            <TextView
+                android:id="@+id/castradoAnimalDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Castrado"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="60dp"
+                tools:layout_editor_absoluteY="758dp" />
+
+            <TextView
+                android:id="@+id/textView38"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Doenças:"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="560dp" />
+
+            <TextView
+                android:id="@+id/doencasAnimalDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Doenças"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="60dp"
+                tools:layout_editor_absoluteY="758dp" />
+
+            <TextView
+                android:id="@+id/textView39"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Acidentado:"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="560dp" />
+
+            <TextView
+                android:id="@+id/acidentadoAnimalDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Acidentado"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="60dp"
+                tools:layout_editor_absoluteY="758dp" />
+
+            <TextView
+                android:id="@+id/textView40"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Nome do Contato:"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="560dp" />
+
+            <TextView
+                android:id="@+id/nomeContatoAnimalDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Nome do Contato"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="60dp"
+                tools:layout_editor_absoluteY="758dp" />
+
+            <TextView
+                android:id="@+id/textView41"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Telefone do Contato:"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="560dp" />
+
+            <TextView
+                android:id="@+id/telefoneAnimalDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Telefone"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="60dp"
+                tools:layout_editor_absoluteY="758dp" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Descrição"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_editor_absoluteX="170dp"
+                tools:layout_editor_absoluteY="276dp" />
+
+            <TextView
+                android:id="@+id/descricaoAnimalDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_marginLeft="15dp"
+                android:padding="2dp"
+                android:text="Descrição"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="64dp"
+                tools:layout_editor_absoluteY="779dp" />
+
+            <Button
+                android:id="@+id/btn_adotar"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="0"
+                android:background="@color/colorAccent"
+                android:text="Adotar"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/btn_quero_adotar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:text="Quero Adotar"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

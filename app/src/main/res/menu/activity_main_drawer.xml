@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_cinza_24dp"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_animais"
+            android:icon="@drawable/ic_pets_cinza_24dp"
+            android:title="Animais" />
+        <item
+            android:id="@+id/nav_animais_adotados"
+            android:icon="@drawable/ic_pets_cinza_24dp"
+            android:title="Animais Adotados" />
+        <item
+            android:id="@+id/nav_pedidos"
+            android:icon="@drawable/ic_format_list_numbered_black_24dp"
+            android:title="Lista de Pedidos" />
+    </group>
+    <item android:title="Comunidade">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_site"
+                    android:icon="@drawable/ic_public_cinza_24dp"
+                    android:title="Site" />
+                <item
+                    android:id="@+id/nav_facebook"
+                    android:icon="@drawable/ic_facebook"
+                    android:title="Facebook" />
+                <item
+                    android:id="@+id/nav_mensagem_ong"
+                    android:icon="@drawable/ic_chat_cinza_24dp"
+                    android:title="Mensagem pra ONG" />
+            </group>
+        </menu>
+
+    </item>
+    <item android:title="Seus Dados">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_cadastrar"
+                    android:icon="@drawable/ic_person_cinza_24dp"
+                    android:title="Cadastrar" />
+                <item
+                    android:id="@+id/nav_conta"
+                    android:icon="@drawable/ic_mail_cinza_24dp"
+                    android:title="Conta" />
+            </group>
+        </menu>
+    </item>
+    <item android:title="Administrador">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_cadastrar_ainimal"
+                    android:icon="@drawable/ic_add_circle_cinza_24dp"
+                    android:title="Cadastrar Animal" />
+            </group>
+        </menu>
+    </item>
+
+</menu>
