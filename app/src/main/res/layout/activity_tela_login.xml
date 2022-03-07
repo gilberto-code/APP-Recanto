@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
+    android:gravity="center_vertical"
     android:orientation="vertical"
     tools:layout_editor_absoluteY="81dp">
 
@@ -12,23 +12,23 @@
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="3dp"
+        android:layout_marginStart="3dp"
         android:layout_weight="0"
-        android:padding="2dp"
+        android:padding="6dp"
         android:text="Email:"
         android:textColor="?attr/colorPrimaryDark"
-        android:textSize="12sp" />
+        android:textSize="18dp" />
 
     <EditText
         android:id="@+id/ed_email_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_margin="15dp"
         android:layout_weight="0"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:textSize="18sp" />
+        android:textSize="22dp" />
 
     <TextView
         android:id="@+id/textView5"
@@ -36,32 +36,47 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="3dp"
         android:layout_weight="0"
-        android:padding="2dp"
+        android:padding="6dp"
         android:text="Senha:"
         android:textColor="?attr/colorPrimaryDark"
-        android:textSize="12sp" />
+        android:textSize="18dp" />
 
     <EditText
         android:id="@+id/ed_password_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_margin="15dp"
         android:layout_weight="0"
         android:ems="10"
         android:hint="Senha"
         android:inputType="textPassword"
-        android:textSize="18sp" />
+        android:textSize="22dp" />
 
     <Button
         android:id="@+id/btn_login_login"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
         android:layout_weight="0"
         android:text="Login"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:textSize="14sp" />
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_login_login2"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_weight="0"
+        android:background="@color/colorPrimary"
+        android:text="Cadastrar"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="19sp" />
 
 </LinearLayout>

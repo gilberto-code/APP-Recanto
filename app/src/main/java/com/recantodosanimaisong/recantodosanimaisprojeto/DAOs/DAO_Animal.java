@@ -2,7 +2,6 @@ package com.recantodosanimaisong.recantodosanimaisprojeto.DAOs;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
@@ -18,9 +17,9 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Adapter.AnimalAdapter;
+import com.recantodosanimaisong.recantodosanimaisprojeto.Conexao.Links;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Animal;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Mysingleton;
-import com.recantodosanimaisong.recantodosanimaisprojeto.activitys.DadosAnimal;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,11 +31,6 @@ import java.util.Hashtable;
 import java.util.Map;
 
 public class DAO_Animal {
-    private String SERVER_ID = "15.228.147.23";
-    private String URL_ENVIO_ANIMAL = "http://"+SERVER_ID+"/php/inserir_animal.php";
-    private String URL_ENVIO_IMAGEM = "http://"+SERVER_ID+"/php/envio_imagem.php";
-    private String URL_PEGAR_ANIMAIS = "http://"+SERVER_ID+"/php/pegar_animais.php";
-    private String URL_PESQUISA_NOME = "http://"+SERVER_ID+"/php/pegar_animais_like.php";
     private AnimalAdapter animalAdapter;
     final String KEY_IMAGE = "imagem";
     private Animal animal;
@@ -45,7 +39,7 @@ public class DAO_Animal {
     public void enviarAnimal(final Animal animal , final Context context){
         final ProgressDialog loading = ProgressDialog.show(context,
                 "Cadastrando animal...","Por favor espere um pouco...",false,false);
-        StringRequest stringRequest = new StringRequest( Request.Method.POST, URL_ENVIO_ANIMAL,
+        StringRequest stringRequest = new StringRequest( Request.Method.POST, Links.ENVIO_ANIMAL,
                 new Response.Listener<String>()
                 {
                     @Override
@@ -84,7 +78,7 @@ public class DAO_Animal {
         //Showing the progress dialog
         final ProgressDialog loading = ProgressDialog.show(context,
                 "Enviando imagem...","Por favor espere um pouco...",false,false);
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_ENVIO_IMAGEM,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Links.ENVIO_IMAGEM,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
@@ -117,7 +111,7 @@ public class DAO_Animal {
                 "Carregando lista...","Espere um segundo...",true,false);
         try {
             StringRequest stringRequest =
-                    new StringRequest(Request.Method.GET, URL_PEGAR_ANIMAIS, new Response.Listener<String>() {
+                    new StringRequest(Request.Method.GET, Links.PEGAR_ANIMAIS, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     Log.i("CARREGAR", response );

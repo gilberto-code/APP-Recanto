@@ -2,6 +2,8 @@ package com.recantodosanimaisong.recantodosanimaisprojeto.DAOs;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -14,7 +16,10 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.recantodosanimaisong.recantodosanimaisprojeto.Conexao.Links;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Usuario;
+import com.recantodosanimaisong.recantodosanimaisprojeto.activitys.MainActivity;
+import com.recantodosanimaisong.recantodosanimaisprojeto.activitys.TelaLogin;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -57,4 +62,7 @@ public class DAO_Usuario {
         //Adding request to the queue
         requestQueue.add(stringRequest);
     }
+
+
 }
+

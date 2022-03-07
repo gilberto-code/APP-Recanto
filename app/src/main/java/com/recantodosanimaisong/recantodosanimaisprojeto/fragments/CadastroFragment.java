@@ -12,6 +12,8 @@ import android.widget.EditText;
 import com.recantodosanimaisong.recantodosanimaisprojeto.DAOs.DAO_Usuario;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Usuario;
 import com.recantodosanimaisong.recantodosanimaisprojeto.R;
+import com.recantodosanimaisong.recantodosanimaisprojeto.activitys.TelaLogin;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -55,7 +57,7 @@ public class CadastroFragment extends Fragment {
             @Override
             public void onClick(View view) {
             Intent intent = new Intent();
-            Intent i = new Intent(getContext(), TelaLogin .class);
+            Intent i = new Intent(getContext(), TelaLogin.class);
             startActivity(i);
             }
         });

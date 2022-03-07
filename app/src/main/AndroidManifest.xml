@@ -44,7 +44,7 @@
         <activity
             android:name=".activitys.DadosAnimalAdotado"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".fragments.TelaLogin"></activity>
+        <activity android:name=".activitys.TelaLogin"></activity>
     </application>
 
 </manifest>

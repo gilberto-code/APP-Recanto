@@ -1,10 +1,13 @@
 package com.recantodosanimaisong.recantodosanimaisprojeto.activitys;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.recantodosanimaisong.recantodosanimaisprojeto.Conexao.Links;
+import com.recantodosanimaisong.recantodosanimaisprojeto.DAOs.DAO_Usuario;
 import com.recantodosanimaisong.recantodosanimaisprojeto.R;
 
 
@@ -34,36 +37,30 @@ public class Abertura extends AppCompatActivity {
                 Random r = new Random(  );
                 int x = r.nextInt(7);
 
-                int img = 0 ;
-                img = R.drawable.a;
-
-
-
             }
-        }, 2500);
+        }, 2000);
 
 
         final boolean usuarioCadastrado = true;
         handle.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(usuarioCadastrado){
-
-                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                SharedPreferences prefs = getSharedPreferences(Links.LOGIN_PREFERENCE, 0);
+                String email= prefs.getString("email", null);
+                String senha= prefs.getString("senha", null);
+                if(email == null){
+                    Intent i = new Intent(getApplicationContext(), TelaLogin.class);
                     startActivity(i);
                     // Fecha esta activity
                     finish();
                 }else{
-
-
-                    //Intent i = new Intent(getApplicationContext(), Login.class);
-                    //startActivity(i);
+                    Intent i = new Intent(getApplicationContext(), TelaLogin.class);
+                    startActivity(i);
                     // Fecha esta activity
-                    //finish();
-
+                    finish();
                 }
             }
-        }, 3500);
+        }, 0);
 
     }
 }
