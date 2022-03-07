@@ -28,13 +28,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
                 android:layout_weight="0"
-                android:paddingBottom="2dp"
                 android:paddingLeft="2dp"
-                android:paddingRight="2dp"
                 android:paddingTop="5dp"
+                android:paddingRight="2dp"
+                android:paddingBottom="2dp"
                 android:text="Nome:"
                 android:textColor="?attr/colorPrimaryDark"
-                android:textSize="12sp" />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/ed_nome"
@@ -45,7 +45,7 @@
                 android:ems="10"
                 android:hint="Nome"
                 android:inputType="textPersonName"
-                android:textSize="18sp" />
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/textView43"
@@ -56,7 +56,7 @@
                 android:padding="2dp"
                 android:text="Telefone:"
                 android:textColor="?attr/colorPrimaryDark"
-                android:textSize="12sp" />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/ed_telefone"
@@ -67,7 +67,7 @@
                 android:ems="10"
                 android:hint="Telefone"
                 android:inputType="text"
-                android:textSize="18sp" />
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/textView45"
@@ -78,7 +78,7 @@
                 android:padding="2dp"
                 android:text="CPF:"
                 android:textColor="?attr/colorPrimaryDark"
-                android:textSize="12sp" />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/ed_cpf"
@@ -89,7 +89,7 @@
                 android:ems="10"
                 android:hint="CPF"
                 android:inputType="textPassword"
-                android:textSize="18sp" />
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/textView47"
@@ -100,7 +100,7 @@
                 android:padding="2dp"
                 android:text="Endereço:"
                 android:textColor="?attr/colorPrimaryDark"
-                android:textSize="12sp" />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/ed_endereco"
@@ -111,7 +111,7 @@
                 android:ems="10"
                 android:hint="Endereço"
                 android:inputType="text"
-                android:textSize="18sp" />
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/textView34"
@@ -122,7 +122,7 @@
                 android:padding="2dp"
                 android:text="Email:"
                 android:textColor="?attr/colorPrimaryDark"
-                android:textSize="12sp" />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/ed_email"
@@ -133,7 +133,7 @@
                 android:ems="10"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
-                android:textSize="18sp" />
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -144,12 +144,13 @@
                 android:padding="2dp"
                 android:text="Foto do Adotante:"
                 android:textColor="?attr/colorPrimaryDark"
-                android:textSize="12sp" />
+                android:textSize="18sp" />
 
             <ImageView
                 android:id="@+id/imagem_do_usuario"
                 android:layout_width="280dp"
-                android:layout_height="180dp"
+                android:layout_height="210dp"
+                android:layout_margin="18dp"
                 android:layout_weight="0"
                 android:scaleType="centerCrop"
                 android:src="@color/colorPrimaryDark" />
@@ -163,12 +164,12 @@
 
                 <ImageButton
                     android:id="@+id/btn_adiconar_imagem_camera"
-                    android:layout_width="50dp"
+                    android:layout_width="70dp"
                     android:layout_height="50dp"
-                    android:layout_marginBottom="2dp"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginRight="2dp"
                     android:layout_marginTop="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="2dp"
                     android:layout_weight="0"
                     android:background="@color/colorAccent"
                     android:padding="4dp"
@@ -177,7 +178,7 @@
 
                 <ImageButton
                     android:id="@+id/btn_adiconar_imagem"
-                    android:layout_width="50dp"
+                    android:layout_width="70dp"
                     android:layout_height="50dp"
                     android:layout_margin="2dp"
                     android:layout_weight="0"
@@ -188,7 +189,7 @@
 
                 <ImageButton
                     android:id="@+id/img_btn_remover"
-                    android:layout_width="50dp"
+                    android:layout_width="70dp"
                     android:layout_height="50dp"
                     android:layout_margin="2dp"
                     android:layout_weight="0"
@@ -210,11 +211,13 @@
 
             <Button
                 android:id="@+id/btnCadastrarUsuario"
-                style="@style/Widget.AppCompat.Button.Colored"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:layout_weight="0"
+                android:background="@color/colorAccent"
                 android:text="Cadastrar"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
