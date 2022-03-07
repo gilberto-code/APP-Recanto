@@ -7,25 +7,27 @@ public class Usuario {
     private String  CPF ;
     private String  endereco ;
     private String  email ;
+    private String  senha ;
     private String  foto_momento ;
 
-    public Usuario(int idUser, String nome, String telefone,
-                   String CPF, String endereco, String email, String foto_momento) {
-        this.idUser =idUser;
+    public Usuario(int idUser, String nome, String telefone, String CPF, String endereco, String email, String senha, String foto_momento) {
+        this.idUser = idUser;
         this.nome = nome;
         this.telefone = telefone;
         this.CPF = CPF;
         this.endereco = endereco;
         this.email = email;
+        this.senha = senha;
         this.foto_momento = foto_momento;
     }
 
-    public Usuario(String nome, String telefone, String CPF,String endereco, String email, String foto_momento) {
+    public Usuario(String nome, String telefone, String CPF, String endereco, String email, String senha, String foto_momento) {
         this.nome = nome;
         this.telefone = telefone;
         this.CPF = CPF;
         this.endereco = endereco;
         this.email = email;
+        this.senha = senha;
         this.foto_momento = foto_momento;
     }
 
@@ -43,6 +45,14 @@ public class Usuario {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public String getTelefone() {
@@ -95,7 +105,9 @@ public class Usuario {
 
         return "Usuario{" + "id=" +idUser + ", nome='" +
                 nome + '\'' + ", telefone='" + telefone + '\'' + ", CPF='" + CPF +  '\'' +
-                ", endereco='" + endereco + '\'' + ", email='" + email +
-                '\'' + ", foto_momento='" + foto_momento + '\'' + '}';
+                ", endereco='" + endereco +
+                '\'' + ", email='" + email + '\'' +
+                '\'' + ", senha='" + senha + '\'' +
+                ", foto_momento='" + foto_momento + '\'' + '}';
     }
 }

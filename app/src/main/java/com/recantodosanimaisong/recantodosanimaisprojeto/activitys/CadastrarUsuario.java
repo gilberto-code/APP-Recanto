@@ -34,6 +34,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.recantodosanimaisong.recantodosanimaisprojeto.Conexao.Links;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Usuario;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Animal;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Mysingleton;
@@ -54,6 +55,7 @@ public class CadastrarUsuario extends AppCompatActivity {
     private EditText ed_cpf;
     private EditText ed_endereco;
     private EditText ed_email;
+    private EditText ed_senha;
     private ImageView imagem_do_usuario;
     private ImageButton btn_adiconar_imagem_camera;
     private ImageButton btn_adiconar_imagem;
@@ -69,8 +71,6 @@ public class CadastrarUsuario extends AppCompatActivity {
     private int PICK_IMAGE_REQUEST = 1;
     static final int REQUEST_IMAGE_CAPTURE = 2;
     private static final int MY_CAMERA_REQUEST_CODE = 100;
-
-    private String URL = "http://200.18.128.55/gilberto/banco_ong/enviar_usuario.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +91,7 @@ public class CadastrarUsuario extends AppCompatActivity {
         ed_cpf = findViewById( R.id.ed_cpf);
         ed_endereco = findViewById( R.id.ed_endereco);
         ed_email = findViewById( R.id.ed_email);
+        ed_senha = findViewById( R.id.ed_senha);
         imagem_do_usuario = findViewById( R.id.imagem_do_usuario);
         btn_adiconar_imagem_camera = findViewById( R.id.btn_adiconar_imagem_camera);
         btn_adiconar_imagem = findViewById( R.id.btn_adiconar_imagem);
@@ -135,21 +136,28 @@ public class CadastrarUsuario extends AppCompatActivity {
         final ProgressDialog loading = ProgressDialog.show(CadastrarUsuario.this,
                 "Cadastrando usuario...","Por favor espere um pouco...",false,false);
 
-        StringRequest stringRequest = new StringRequest( Request.Method.POST, URL,
+        StringRequest stringRequest = new StringRequest( Request.Method.POST, Links.CADASTRO_USER,
                 new Response.Listener<String>()
                 {
                     @Override
                     public void onResponse(String response) {
                         loading.dismiss();
-                        Toast.makeText( getApplicationContext(), "Usuario Cadastrado", Toast.LENGTH_SHORT ).show();
-                        //Toast.makeText( getApplicationContext(), response, Toast.LENGTH_SHORT ).show();
+                        Log.i("aff",response);
+                        if(response.contains("Duplicate entry")){
+                            Toast.makeText( getApplicationContext(),
+                                    "Falha - Email já Cadastrado", Toast.LENGTH_LONG ).show();
+                        }else if(response=="1"){
+                            Toast.makeText( getApplicationContext(),
+                                    "Cadastro Realizado", Toast.LENGTH_SHORT ).show();
+                        }
                     }
                 },
                 new Response.ErrorListener()
                 {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText( getApplicationContext(),"Erro", Toast.LENGTH_SHORT ).show();
+                        Toast.makeText( getApplicationContext(),"Conexão com o Servidor Falhou", Toast.LENGTH_SHORT ).show();
+                        loading.dismiss();
                     }
                 }
         ) {
@@ -175,18 +183,19 @@ public class CadastrarUsuario extends AppCompatActivity {
         String nome;
         String telefone;
         String CPF;
-        String data_nascimento;
         String endereco;
         String email;
         String foto_momento;
+        String senha;
 
         nome = ed_nome.getText().toString();
         telefone = ed_telefone.getText().toString();
         CPF = ed_cpf.getText().toString();
         endereco = ed_endereco.getText().toString();
         email = ed_email.getText().toString();
+        senha = ed_senha.getText().toString();
         foto_momento = getStringImage(imagemUsuario);
-        usuario= new Usuario( nome , telefone ,CPF, endereco, email, foto_momento );
+        usuario= new Usuario( nome , telefone ,CPF, endereco, email,senha, foto_momento );
         return usuario;
     }
 
@@ -220,11 +229,16 @@ public class CadastrarUsuario extends AppCompatActivity {
         }
     }
     public String getStringImage(Bitmap bmp){
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] imageBytes = baos.toByteArray();
-        String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
-        return encodedImage;
+       try {
+           ByteArrayOutputStream baos = new ByteArrayOutputStream();
+           bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+           byte[] imageBytes = baos.toByteArray();
+           String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+           return encodedImage;
+       }catch (Exception e){
+           //Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
+       }
+       return "";
     }
     public void pedir_permissao (){
         if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA)
