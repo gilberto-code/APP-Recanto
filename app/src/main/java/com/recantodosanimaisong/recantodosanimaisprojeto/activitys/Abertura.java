@@ -11,6 +11,7 @@ import com.recantodosanimaisong.recantodosanimaisprojeto.DAOs.DAO_Usuario;
 import com.recantodosanimaisong.recantodosanimaisprojeto.R;
 
 
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,6 +30,14 @@ public class Abertura extends AppCompatActivity {
 
         imageAbertura = findViewById( R.id.imageAbertura );
         textAbertura = findViewById( R.id.textAbertura );
+
+
+        SharedPreferences.Editor editor =
+                getSharedPreferences(Links.LOGIN_PREFERENCE, 0).edit();
+        editor.putString("email", null);
+        editor.commit();
+
+
         final Handler handle = new Handler();
         handle.postDelayed(new Runnable() {
             @Override
@@ -41,20 +50,21 @@ public class Abertura extends AppCompatActivity {
         }, 2000);
 
 
-        final boolean usuarioCadastrado = true;
         handle.postDelayed(new Runnable() {
             @Override
             public void run() {
                 SharedPreferences prefs = getSharedPreferences(Links.LOGIN_PREFERENCE, 0);
                 String email= prefs.getString("email", null);
-                String senha= prefs.getString("senha", null);
+                Log.i("aff", email+"");
+
+
                 if(email == null){
                     Intent i = new Intent(getApplicationContext(), TelaLogin.class);
                     startActivity(i);
                     // Fecha esta activity
                     finish();
                 }else{
-                    Intent i = new Intent(getApplicationContext(), TelaLogin.class);
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(i);
                     // Fecha esta activity
                     finish();

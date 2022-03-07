@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import com.recantodosanimaisong.recantodosanimaisprojeto.DAOs.DAO_Usuario;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Usuario;
 import com.recantodosanimaisong.recantodosanimaisprojeto.R;
@@ -48,8 +50,9 @@ public class CadastroFragment extends Fragment {
                 String conf_password = ed_confim_password.getText().toString();
                 if(isPasswordValid( password , conf_password , v)
                         && isEmailValid( email , v)) {
-                    Usuario usuario = new Usuario(nome,password,email);
-                    dao_usuario.envio_usuario(usuario , getContext());
+                    Toast.makeText(getContext(), "DEU BO AQUI", Toast.LENGTH_SHORT).show();
+//                    Usuario usuario = new Usuario(nome,password,email);
+//                    dao_usuario.envio_usuario(usuario , getContext());
                 }
                 }
         } );

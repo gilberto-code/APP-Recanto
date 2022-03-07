@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activitys.CadastrarAdotante"
+    tools:context=".activitys.CadastrarUsuario"
     android:orientation="vertical">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -92,28 +92,6 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView44"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="3dp"
-                android:layout_weight="0"
-                android:padding="2dp"
-                android:text="Data de Nascimento:"
-                android:textColor="?attr/colorPrimaryDark"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/ed_data_nascimento"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="0"
-                android:ems="10"
-                android:hint="Data de Nascimento:"
-                android:inputType="text"
-                android:textSize="18sp" />
-
-            <TextView
                 android:id="@+id/textView47"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -169,7 +147,7 @@
                 android:textSize="12sp" />
 
             <ImageView
-                android:id="@+id/imagem_do_adotante"
+                android:id="@+id/imagem_do_usuario"
                 android:layout_width="280dp"
                 android:layout_height="180dp"
                 android:layout_weight="0"
@@ -231,7 +209,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/btnCadastrarAdotante"
+                android:id="@+id/btnCadastrarUsuario"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

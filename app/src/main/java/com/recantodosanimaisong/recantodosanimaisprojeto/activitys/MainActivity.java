@@ -81,8 +81,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.nav_home) {
-            Intent i = new Intent(getApplicationContext(), AdotarActivity.class);
-            startActivity(i);
+//            Intent i = new Intent(getApplicationContext(), AdotarActivity.class);
+//            startActivity(i);
         }
         else if (id == R.id.nav_animais) {
             //Toast.makeText( getApplicationContext(), "Adoção", Toast.LENGTH_SHORT ).show();

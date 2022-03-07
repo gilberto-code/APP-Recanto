@@ -35,11 +35,11 @@
         <activity
             android:name=".activitys.DadosAnimal"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+<!--        <activity-->
+<!--            android:name=".activitys.AdotarActivity"-->
+<!--            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />-->
         <activity
-            android:name=".activitys.AdotarActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".activitys.CadastrarAdotante"
+            android:name=".activitys.CadastrarUsuario"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".activitys.DadosAnimalAdotado"

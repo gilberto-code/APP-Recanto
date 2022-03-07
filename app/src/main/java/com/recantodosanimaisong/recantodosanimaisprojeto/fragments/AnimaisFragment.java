@@ -9,9 +9,6 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.CallSuper;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,7 +19,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,21 +29,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.recantodosanimaisong.recantodosanimaisprojeto.Adapter.AnimalAdapter;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Adapter.RecyclerItemClickListener;
 import com.recantodosanimaisong.recantodosanimaisprojeto.DAOs.DAO_Animal;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Animal;
-import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Mysingleton;
-import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Pedido_Adocao;
-import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Usuario;
 import com.recantodosanimaisong.recantodosanimaisprojeto.R;
-import com.recantodosanimaisong.recantodosanimaisprojeto.activitys.Abertura;
 import com.recantodosanimaisong.recantodosanimaisprojeto.activitys.DadosAnimal;
-import com.recantodosanimaisong.recantodosanimaisprojeto.activitys.DadosAnimalAdotado;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -57,7 +44,6 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**

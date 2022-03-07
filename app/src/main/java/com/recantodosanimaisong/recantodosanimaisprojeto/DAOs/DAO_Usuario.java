@@ -2,8 +2,6 @@ package com.recantodosanimaisong.recantodosanimaisprojeto.DAOs;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -18,19 +16,15 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Conexao.Links;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Usuario;
-import com.recantodosanimaisong.recantodosanimaisprojeto.activitys.MainActivity;
-import com.recantodosanimaisong.recantodosanimaisprojeto.activitys.TelaLogin;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class DAO_Usuario {
-    private String URL_ENVIO_USUARIO = "http://200.18.128.55/gilberto/banco_ong/enviar_usuario.php";
-
     public void envio_usuario(final Usuario usuario, final Context context){
         final ProgressDialog loading = ProgressDialog.show(context,"Cadastrando Usuário...",
                 "Por favor espere um pouco...",false,false);
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_ENVIO_USUARIO,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Links.CADASTRO_USER,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
@@ -62,7 +56,5 @@ public class DAO_Usuario {
         //Adding request to the queue
         requestQueue.add(stringRequest);
     }
-
-
 }
 

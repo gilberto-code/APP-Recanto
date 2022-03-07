@@ -1,6 +1,5 @@
 package com.recantodosanimaisong.recantodosanimaisprojeto.activitys;
 
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -10,8 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -30,11 +27,8 @@ import com.bumptech.glide.Glide;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Adotante;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Animal;
-import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Mysingleton;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Pedido_Adocao;
-import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Usuario;
 import com.recantodosanimaisong.recantodosanimaisprojeto.R;
 
 import java.io.ByteArrayInputStream;
@@ -145,10 +139,10 @@ public class DadosAnimal extends AppCompatActivity {
         adotarButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), AdotarActivity.class);
-                //i.putExtra("animal" , animal);
-                i.putExtra("animal" , animal);
-                startActivity(i);
+//                Intent i = new Intent(getApplicationContext(), AdotarActivity.class);
+//                //i.putExtra("animal" , animal);
+//                i.putExtra("animal" , animal);
+//                startActivity(i);
             }
         } );
         btn_quero_adotar.setOnClickListener(new View.OnClickListener() {

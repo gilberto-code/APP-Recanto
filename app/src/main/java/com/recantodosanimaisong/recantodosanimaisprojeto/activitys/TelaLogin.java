@@ -29,6 +29,7 @@ import java.util.Map;
 public class TelaLogin extends AppCompatActivity {
 
     private Button buttonLogin;
+    private Button buttonCadastro;
     private EditText ed_email;
     private EditText ed_password;
     private Context context;
@@ -40,8 +41,19 @@ public class TelaLogin extends AppCompatActivity {
         ed_email = findViewById( R.id.ed_email_login );
         ed_password = findViewById( R.id.ed_password_login );
         buttonLogin = findViewById(R.id.btn_login_login);
+        buttonCadastro = findViewById(R.id.btn_cadastro);
 
         context= this;
+
+
+        buttonCadastro.setOnClickListener(new View.OnClickListener() {
+
+           @Override
+           public void onClick(View view) {
+               Intent i = new Intent(context ,CadastrarUsuario.class);
+               context.startActivity(i);
+           }
+         });
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +68,6 @@ public class TelaLogin extends AppCompatActivity {
                             @Override
                             public void onResponse(String s) {
                                 loading.dismiss();
-                                Log.i("aff", email+senha);
                                 if(Integer.parseInt(s) == 1){
                                     Toast.makeText(context, "Logado", Toast.LENGTH_SHORT).show();
 
