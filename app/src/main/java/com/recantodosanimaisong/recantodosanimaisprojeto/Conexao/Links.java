@@ -8,6 +8,7 @@ public interface Links {
     public static final String PESQUISA_NOME = "http://"+SERVER_ID+"/php/pegar_animais_like.php";
     public static final String LOGIN = "http://"+SERVER_ID+"/php/login.php";
     public static final String CADASTRO_USER = "http://"+SERVER_ID+"/php/cadastro_user.php";
+    public static final String ATUALIZAR_USER = "http://"+SERVER_ID+"/php/atualizar_user.php";
     public static final String PEGAR_USER = "http://"+SERVER_ID+"/php/pegar_user.php";
 
     public static final String LOGIN_PREFERENCE = "LOGIN";

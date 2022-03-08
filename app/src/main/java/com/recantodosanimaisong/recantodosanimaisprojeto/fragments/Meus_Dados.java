@@ -35,6 +35,8 @@ import com.recantodosanimaisong.recantodosanimaisprojeto.Conexao.Links;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Mysingleton;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Usuario;
 import com.recantodosanimaisong.recantodosanimaisprojeto.R;
+import com.recantodosanimaisong.recantodosanimaisprojeto.activitys.CadastrarUsuario;
+import com.recantodosanimaisong.recantodosanimaisprojeto.activitys.MainActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -98,7 +100,7 @@ public class Meus_Dados extends Fragment {
         }
     }
 
-    private Usuario usuario;
+    private int idUser;
     private EditText ed_nome;
     private EditText ed_telefone;
     private EditText ed_cpf;
@@ -137,7 +139,9 @@ public class Meus_Dados extends Fragment {
         btnAtualizarUsuario.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Opa bão?", Toast.LENGTH_SHORT).show();
+                Usuario usuario = coletar_informacao();
+                Log.i("aff", "2 tyu é burro é???");
+                atualizarUsuario(usuario);
             }
         } );
         btn_adiconar_imagem_camera.setOnClickListener( new View.OnClickListener() {
@@ -151,7 +155,6 @@ public class Meus_Dados extends Fragment {
             @Override
             public void onClick(View view) {
                 pedir_permissao();
-
                 showFileChooser();
             }
         });
@@ -189,6 +192,28 @@ public class Meus_Dados extends Fragment {
         Glide.with(getContext()).load(imagem).into(imagem_do_usuario);
     }
 
+
+    public Usuario coletar_informacao(){
+        String nome;
+        String telefone;
+        String CPF;
+        String endereco;
+        String email;
+        String foto_momento;
+        String senha;
+
+        nome = ed_nome.getText().toString();
+        telefone = ed_telefone.getText().toString();
+        CPF = ed_cpf.getText().toString();
+        endereco = ed_endereco.getText().toString();
+        email = ed_email.getText().toString();
+        senha = ed_senha.getText().toString();
+        foto_momento = getStringImage(imagemUsuario);
+        Log.i("aff", "tyu é burro é???");
+        Usuario usuario = new Usuario(idUser, nome , telefone ,CPF, endereco, email,senha, foto_momento );
+        return usuario;
+    }
+
     public void pegarDadosUsuario(final Usuario usuario){
         final ProgressDialog loading = ProgressDialog.show(getContext(),
                 "Carregando...","Por favor espere um pouco...",false,false);
@@ -207,6 +232,7 @@ public class Meus_Dados extends Fragment {
                                 JSONObject js = jsonArray.getJSONObject(a);
                                 u = gson.fromJson(js.toString(), Usuario.class);
                                 Log.i("aff", u.toString());
+                                idUser = u.getIdUser();
                                 preencher_campos(u);
                                 break;
                             }
@@ -242,6 +268,46 @@ public class Meus_Dados extends Fragment {
         Mysingleton.getmInstance( getContext() ).addTpRequestque( stringRequest );
     }
 
+    public void atualizarUsuario(final Usuario usuario){
+        Log.i("aff", "3tyu é burro é???");
+        final ProgressDialog loading = ProgressDialog.show(getContext(),
+                "Cadastrando usuario...","Por favor espere um pouco...",false,false);
+
+        StringRequest stringRequest = new StringRequest( Request.Method.POST, Links.ATUALIZAR_USER,
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        loading.dismiss();
+                        Log.i("aff",response);
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText( getContext(),"Conexão com o Servidor Falhou", Toast.LENGTH_SHORT ).show();
+                        loading.dismiss();
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams()
+            {
+                Map<String, String>  params = new HashMap<String, String>();
+                Gson gson = new GsonBuilder()
+                        .disableHtmlEscaping()
+                        .setFieldNamingPolicy( FieldNamingPolicy.UPPER_CAMEL_CASE)
+                        .setPrettyPrinting()
+                        .serializeNulls()
+                        .create();
+                Log.i("oque sera" ,gson.toJson(usuario));
+                params.put("usuario", gson.toJson(usuario));
+                return params;
+            }
+        };
+        Mysingleton.getmInstance( getContext() ).addTpRequestque( stringRequest );
+    }
 
     public void pedir_permissao (){
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA)
@@ -264,7 +330,7 @@ public class Meus_Dados extends Fragment {
             String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
             return encodedImage;
         }catch (Exception e){
-            Toast.makeText(getContext(), "Ocorreram erros durante o processo", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Imagem não carregada", Toast.LENGTH_SHORT).show();
         }
         return "";
     }
@@ -278,4 +344,7 @@ public class Meus_Dados extends Fragment {
             return null;
         }
     }
+
+
+
 }
