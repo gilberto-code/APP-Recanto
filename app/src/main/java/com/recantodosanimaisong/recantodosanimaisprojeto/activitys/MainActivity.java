@@ -20,6 +20,7 @@ import com.recantodosanimaisong.recantodosanimaisprojeto.fragments.AnimaisFragme
 import com.recantodosanimaisong.recantodosanimaisprojeto.fragments.Animais_Adotados;
 import com.recantodosanimaisong.recantodosanimaisprojeto.fragments.CadastroAnimalFragment;
 import com.recantodosanimaisong.recantodosanimaisprojeto.fragments.CadastroFragment;
+import com.recantodosanimaisong.recantodosanimaisprojeto.fragments.Meus_Dados;
 import com.recantodosanimaisong.recantodosanimaisprojeto.fragments.PedidosFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -122,7 +123,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction.replace(R.id.fragment_container,cadastroFragment );
             fragmentTransaction.commit();
         }else if (id == R.id.nav_conta) {
-            //funcao( this );
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            Meus_Dados meusDadosFragment = new Meus_Dados();
+            fragmentTransaction.replace(R.id.fragment_container, meusDadosFragment );
+            fragmentTransaction.commit();
         }
         else if (id == R.id.nav_cadastrar_ainimal) {
             //Toast.makeText( getApplicationContext() ,"Cadastrar Animal",Toast.LENGTH_SHORT ).show();

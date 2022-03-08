@@ -98,6 +98,5 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder
         }else{
             return null;
         }
-
     }
 }

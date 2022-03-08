@@ -4,27 +4,31 @@ public class Usuario {
     private  int idUser ;
     private String nome ;
     private String  telefone;
-    private String  CPF ;
+    private String cpf;
     private String  endereco ;
     private String  email ;
     private String  senha ;
     private String  foto_momento ;
 
-    public Usuario(int idUser, String nome, String telefone, String CPF, String endereco, String email, String senha, String foto_momento) {
+    public Usuario(String email) {
+        this.email = email;
+    }
+
+    public Usuario(int idUser, String nome, String telefone, String cpf, String endereco, String email, String senha, String foto_momento) {
         this.idUser = idUser;
         this.nome = nome;
         this.telefone = telefone;
-        this.CPF = CPF;
+        this.cpf = cpf;
         this.endereco = endereco;
         this.email = email;
         this.senha = senha;
         this.foto_momento = foto_momento;
     }
 
-    public Usuario(String nome, String telefone, String CPF, String endereco, String email, String senha, String foto_momento) {
+    public Usuario(String nome, String telefone, String cpf, String endereco, String email, String senha, String foto_momento) {
         this.nome = nome;
         this.telefone = telefone;
-        this.CPF = CPF;
+        this.cpf = cpf;
         this.endereco = endereco;
         this.email = email;
         this.senha = senha;
@@ -63,12 +67,12 @@ public class Usuario {
         this.telefone = telefone;
     }
 
-    public String getCPF() {
-        return CPF;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getEndereco() {
@@ -104,7 +108,7 @@ public class Usuario {
 //                '\'' + ", foto_momento='" + foto_momento + '\'' + '}';
 
         return "Usuario{" + "id=" +idUser + ", nome='" +
-                nome + '\'' + ", telefone='" + telefone + '\'' + ", CPF='" + CPF +  '\'' +
+                nome + '\'' + ", telefone='" + telefone + '\'' + ", CPF='" + cpf +  '\'' +
                 ", endereco='" + endereco +
                 '\'' + ", email='" + email + '\'' +
                 '\'' + ", senha='" + senha + '\'' +
