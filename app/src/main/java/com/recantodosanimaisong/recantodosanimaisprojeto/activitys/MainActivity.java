@@ -13,13 +13,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.recantodosanimaisong.recantodosanimaisprojeto.Conexao.BaseAppCompatActivity;
-import com.recantodosanimaisong.recantodosanimaisprojeto.Conexao.MyUncaughtException;
 import com.recantodosanimaisong.recantodosanimaisprojeto.R;
 import com.recantodosanimaisong.recantodosanimaisprojeto.fragments.AnimaisFragment;
 import com.recantodosanimaisong.recantodosanimaisprojeto.fragments.Animais_Adotados;
 import com.recantodosanimaisong.recantodosanimaisprojeto.fragments.CadastroAnimalFragment;
-import com.recantodosanimaisong.recantodosanimaisprojeto.fragments.CadastroFragment;
 import com.recantodosanimaisong.recantodosanimaisprojeto.fragments.Meus_Dados;
 import com.recantodosanimaisong.recantodosanimaisprojeto.fragments.PedidosFragment;
 
@@ -114,14 +111,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.setData( Uri.parse(url));
             startActivity(i);
-        }else if (id == R.id.nav_mensagem_ong) {
-            //funcao( this );
-        }else if (id == R.id.nav_cadastrar){
-            //Toast.makeText( getApplicationContext() ,"NAV_CADASTRAR",Toast.LENGTH_SHORT ).show();
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            CadastroFragment cadastroFragment = new CadastroFragment();
-            fragmentTransaction.replace(R.id.fragment_container,cadastroFragment );
-            fragmentTransaction.commit();
         }else if (id == R.id.nav_conta) {
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             Meus_Dados meusDadosFragment = new Meus_Dados();
