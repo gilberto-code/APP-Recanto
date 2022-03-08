@@ -66,8 +66,6 @@ public class CadastrarUsuario extends AppCompatActivity {
     private Bitmap imagemUsuario;
 
 
-    private String KEY_IMAGEP = "imagemPrin";
-
     private int PICK_IMAGE_REQUEST = 1;
     static final int REQUEST_IMAGE_CAPTURE = 2;
     private static final int MY_CAMERA_REQUEST_CODE = 100;
@@ -102,11 +100,14 @@ public class CadastrarUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                pedir_permissao();
+               dispatchTakePictureIntent(getApplicationContext());
             }
         } );
         btn_adiconar_imagem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pedir_permissao();
+
                 showFileChooser();
             }
         });
@@ -145,10 +146,14 @@ public class CadastrarUsuario extends AppCompatActivity {
                         Log.i("aff",response);
                         if(response.contains("Duplicate entry")){
                             Toast.makeText( getApplicationContext(),
-                                    "Falha - Email já Cadastrado", Toast.LENGTH_LONG ).show();
-                        }else if(response=="1"){
+                                    "Falha - Usuário já Cadastrado", Toast.LENGTH_LONG ).show();
+                        }else if(Integer.parseInt(response) == 1){
                             Toast.makeText( getApplicationContext(),
                                     "Cadastro Realizado", Toast.LENGTH_SHORT ).show();
+
+                            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(i);
+                            finish();
                         }
                     }
                 },

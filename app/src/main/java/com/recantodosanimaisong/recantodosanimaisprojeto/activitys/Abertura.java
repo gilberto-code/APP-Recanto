@@ -32,10 +32,10 @@ public class Abertura extends AppCompatActivity {
         textAbertura = findViewById( R.id.textAbertura );
 
 
-        SharedPreferences.Editor editor =
-                getSharedPreferences(Links.LOGIN_PREFERENCE, 0).edit();
-        editor.putString("email", null);
-        editor.commit();
+//        SharedPreferences.Editor editor =
+//                getSharedPreferences(Links.LOGIN_PREFERENCE, 0).edit();
+//        editor.putString("email", null);
+//        editor.commit();
 
 
         final Handler handle = new Handler();
