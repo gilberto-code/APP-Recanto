@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         else if (id == R.id.nav_site) {
             //Toast.makeText( getApplicationContext() ,"Site",Toast.LENGTH_SHORT ).show();
-            String url = "http://recantoanimaiscont.wixsite.com";
+            String url = "https://github.com/gilberto-code/";
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.setData( Uri.parse(url));
             startActivity(i);
