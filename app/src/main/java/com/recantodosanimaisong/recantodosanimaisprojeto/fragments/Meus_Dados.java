@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
@@ -43,6 +45,7 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
@@ -107,7 +110,7 @@ public class Meus_Dados extends Fragment {
     private EditText ed_endereco;
     private EditText ed_email;
     private EditText ed_senha;
-    private ImageView imagem_do_usuario;
+    private ImageView imagem_do_usuario_up;
     private ImageButton btn_adiconar_imagem_camera;
     private ImageButton btn_adiconar_imagem;
     private ImageButton img_btn_remover;
@@ -130,7 +133,7 @@ public class Meus_Dados extends Fragment {
         ed_endereco = view.findViewById( R.id.ed_endereco);
         ed_email = view.findViewById( R.id.ed_email);
         ed_senha = view.findViewById( R.id.ed_senha);
-        imagem_do_usuario = view.findViewById( R.id.imagem_do_usuario);
+        imagem_do_usuario_up = view.findViewById( R.id.imagem_do_usuario_up);
         btn_adiconar_imagem_camera = view.findViewById( R.id.btn_adiconar_imagem_camera);
         btn_adiconar_imagem = view.findViewById( R.id.btn_adiconar_imagem);
         img_btn_remover = view.findViewById( R.id.img_btn_remover);
@@ -140,7 +143,7 @@ public class Meus_Dados extends Fragment {
             @Override
             public void onClick(View v) {
                 Usuario usuario = coletar_informacao();
-                Log.i("aff", "2 tyu é burro é???");
+
                 atualizarUsuario(usuario);
             }
         } );
@@ -161,7 +164,7 @@ public class Meus_Dados extends Fragment {
         img_btn_remover.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                imagem_do_usuario.setImageBitmap(null);
+                imagem_do_usuario_up.setImageBitmap(null);
             }
         } );
 
@@ -187,9 +190,7 @@ public class Meus_Dados extends Fragment {
         ed_endereco.setText(usuario.getEndereco());
         ed_email.setText(usuario.getEmail());
         ed_senha.setText(usuario.getSenha());
-
-        byte[] imagem = StringByte( usuario.getFoto_momento() );
-        Glide.with(getContext()).load(imagem).into(imagem_do_usuario);
+        imagem_do_usuario_up.setImageBitmap(StringBitmap(usuario.getFoto_momento()));
     }
 
 
@@ -209,7 +210,7 @@ public class Meus_Dados extends Fragment {
         email = ed_email.getText().toString();
         senha = ed_senha.getText().toString();
         foto_momento = getStringImage(imagemUsuario);
-        Log.i("aff", "tyu é burro é???");
+
         Usuario usuario = new Usuario(idUser, nome , telefone ,CPF, endereco, email,senha, foto_momento );
         return usuario;
     }
@@ -260,7 +261,6 @@ public class Meus_Dados extends Fragment {
                         .setPrettyPrinting()
                         .serializeNulls()
                         .create();
-                Log.i("oque sera" ,gson.toJson(usuario));
                 params.put("usuario", gson.toJson(usuario));
                 return params;
             }
@@ -269,7 +269,7 @@ public class Meus_Dados extends Fragment {
     }
 
     public void atualizarUsuario(final Usuario usuario){
-        Log.i("aff", "3tyu é burro é???");
+
         final ProgressDialog loading = ProgressDialog.show(getContext(),
                 "Cadastrando usuario...","Por favor espere um pouco...",false,false);
 
@@ -325,7 +325,7 @@ public class Meus_Dados extends Fragment {
     public String getStringImage(Bitmap bmp){
         try {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            bmp.compress(Bitmap.CompressFormat.JPEG, 70, baos);
             byte[] imageBytes = baos.toByteArray();
             String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
             return encodedImage;
@@ -335,16 +335,37 @@ public class Meus_Dados extends Fragment {
         return "";
     }
 
-    public byte[] StringByte(String image){
+    public Bitmap StringBitmap(String image){
         if(image!=null){
             byte [] encodeByte= Base64.decode(image,Base64.DEFAULT);
             InputStream inputStream  = new ByteArrayInputStream(encodeByte);
-            return encodeByte;
+            Bitmap bmp = BitmapFactory.decodeStream(inputStream);
+            return bmp;
         }else{
             return null;
         }
     }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-
-
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == getActivity().RESULT_OK && data != null && data.getData() != null) {
+            Uri filePath = data.getData();
+            try {
+                //Getting the Bitmap from Gallery
+                bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), filePath);
+                //Setting the Bitmap to ImageView
+                imagem_do_usuario_up.setImageBitmap(bitmap);
+                imagemUsuario = bitmap;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == getActivity().RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            imagem_do_usuario_up.setImageBitmap(imageBitmap);
+            imagemUsuario = imageBitmap;
+        }
+    }
 }

@@ -236,7 +236,7 @@ public class CadastrarUsuario extends AppCompatActivity {
     public String getStringImage(Bitmap bmp){
        try {
            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-           bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+           bmp.compress(Bitmap.CompressFormat.JPEG, 70, baos);
            byte[] imageBytes = baos.toByteArray();
            String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
            return encodedImage;

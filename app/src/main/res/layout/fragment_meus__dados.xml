@@ -166,7 +166,7 @@ android:layout_height="match_parent">
             android:textSize="18sp" />
 
         <ImageView
-            android:id="@+id/imagem_do_usuario"
+            android:id="@+id/imagem_do_usuario_up"
             android:layout_width="280dp"
             android:layout_height="210dp"
             android:layout_margin="18dp"
