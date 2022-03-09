@@ -23,9 +23,9 @@ public class Animal_Adotado extends Animal {
                           String dataDeCadastro, String qualDoenca, String qualAcidente,
                           int doente, int acidentado, int castrado, int vacinado, int prenha,
                           int idAdotante, String dataAdocao, int idAnimalAdotado) {
-        super(nome, especie, idade, raca, cor, porte, sexo, descricao, temperamento,
-                bairroEncontrado, nomeContato, telefoneContato, dataDeCadastro,
-                qualDoenca, qualAcidente, doente, acidentado, castrado, vacinado, prenha);
+        super(nome, especie, idade, raca, cor, porte, sexo, descricao,
+                dataDeCadastro,
+                qualDoenca, doente, castrado, vacinado);
         this.idAdotante = idAdotante;
         this.dataAdocao = dataAdocao;
         this.idAnimalAdotado = idAnimalAdotado;

@@ -16,26 +16,18 @@ public class Animal implements Serializable {
     private String porte;
     private String sexo;
     private String descricao;
-    private String temperamento;
-    private String bairroEncontrado;
-    private String nomeContato;
-    private String telefoneContato;
     private String dataDeCadastro;
     private String qualDoenca;
-    private String qualAcidente;
     private int doente;
-    private int acidentado;
     private int castrado;
     private int vacinado;
-    private int prenha;
     private int idAnimal;
     private String imagem;
 
 
     public Animal(String nome, String especie, int idade, String raca,
-                  String cor, String porte, String sexo, String descricao, String temperamento,
-                  String bairroEncontrado, String nomeContato, String telefoneContato, String dataDeCadastro,
-                  String qualDoenca, String qualAcidente, int doente, int acidentado, int castrado, int vacinado, int prenha) {
+                  String cor, String porte, String sexo, String descricao, String dataDeCadastro,
+                  String qualDoenca, int doente, int castrado, int vacinado) {
         this.nome = nome;
         this.especie = especie;
         this.idade = idade;
@@ -44,21 +36,17 @@ public class Animal implements Serializable {
         this.porte = porte;
         this.sexo = sexo;
         this.descricao = descricao;
-        this.temperamento = temperamento;
-        this.bairroEncontrado = bairroEncontrado;
-        this.nomeContato = nomeContato;
-        this.telefoneContato = telefoneContato;
         this.dataDeCadastro = dataDeCadastro;
         this.qualDoenca = qualDoenca;
-        this.qualAcidente = qualAcidente;
         this.doente = doente;
-        this.acidentado = acidentado;
         this.castrado = castrado;
         this.vacinado = vacinado;
-        this.prenha = prenha;
     }
 
-    public Animal(String nome, String especie, int idade, String raca, String cor, String porte, String sexo, String descricao, String temperamento, String bairroEncontrado, String nomeContato, String telefoneContato, String dataDeCadastro, String qualDoenca, String qualAcidente, int doente, int acidentado, int castrado, int vacinado, int prenha, int idAnimal, String imagem) {
+    public Animal(String nome, String especie, int idade, String raca,
+                  String cor, String porte, String sexo, String descricao,
+                  String dataDeCadastro, String qualDoenca, int doente,
+                  int castrado, int vacinado, int idAnimal, String imagem) {
         this.nome = nome;
         this.especie = especie;
         this.idade = idade;
@@ -67,18 +55,11 @@ public class Animal implements Serializable {
         this.porte = porte;
         this.sexo = sexo;
         this.descricao = descricao;
-        this.temperamento = temperamento;
-        this.bairroEncontrado = bairroEncontrado;
-        this.nomeContato = nomeContato;
-        this.telefoneContato = telefoneContato;
         this.dataDeCadastro = dataDeCadastro;
         this.qualDoenca = qualDoenca;
-        this.qualAcidente = qualAcidente;
         this.doente = doente;
-        this.acidentado = acidentado;
         this.castrado = castrado;
         this.vacinado = vacinado;
-        this.prenha = prenha;
         this.idAnimal = idAnimal;
         this.imagem = imagem;
     }
@@ -147,37 +128,6 @@ public class Animal implements Serializable {
         this.descricao = descricao;
     }
 
-    public String getTemperamento() {
-        return temperamento;
-    }
-
-    public void setTemperamento(String temperamento) {
-        this.temperamento = temperamento;
-    }
-
-    public String getBairroEncontrado() {
-        return bairroEncontrado;
-    }
-
-    public void setBairroEncontrado(String bairroEncontrado) {
-        this.bairroEncontrado = bairroEncontrado;
-    }
-
-    public String getNomeContato() {
-        return nomeContato;
-    }
-
-    public void setNomeContato(String nomeContato) {
-        this.nomeContato = nomeContato;
-    }
-
-    public String getTelefoneContato() {
-        return telefoneContato;
-    }
-
-    public void setTelefoneContato(String telefoneContato) {
-        this.telefoneContato = telefoneContato;
-    }
 
     public String getDataDeCadastro() {
         return dataDeCadastro;
@@ -195,28 +145,12 @@ public class Animal implements Serializable {
         this.qualDoenca = qualDoenca;
     }
 
-    public String getQualAcidente() {
-        return qualAcidente;
-    }
-
-    public void setQualAcidente(String qualAcidente) {
-        this.qualAcidente = qualAcidente;
-    }
-
     public int getDoente() {
         return doente;
     }
 
     public void setDoente(int doente) {
         this.doente = doente;
-    }
-
-    public int getAcidentado() {
-        return acidentado;
-    }
-
-    public void setAcidentado(int acidentado) {
-        this.acidentado = acidentado;
     }
 
     public int getCastrado() {
@@ -233,14 +167,6 @@ public class Animal implements Serializable {
 
     public void setVacinado(int vacinado) {
         this.vacinado = vacinado;
-    }
-
-    public int getPrenha() {
-        return prenha;
-    }
-
-    public void setPrenha(int prenha) {
-        this.prenha = prenha;
     }
 
     public int getIdAnimal() {
@@ -270,18 +196,11 @@ public class Animal implements Serializable {
                 ", porte='" + porte + '\'' +
                 ", sexo='" + sexo + '\'' +
                 ", descricao='" + descricao + '\'' +
-                ", temperamento='" + temperamento + '\'' +
-                ", bairroEncontrado='" + bairroEncontrado + '\'' +
-                ", nomeContato='" + nomeContato + '\'' +
-                ", telefoneContato='" + telefoneContato + '\'' +
                 ", dataDeCadastro='" + dataDeCadastro + '\'' +
                 ", qualDoenca='" + qualDoenca + '\'' +
-                ", qualAcidente='" + qualAcidente + '\'' +
                 ", doente=" + doente +
-                ", acidentado=" + acidentado +
                 ", castrado=" + castrado +
                 ", vacinado=" + vacinado +
-                ", prenha=" + prenha +
                 ", idAnimal=" + idAnimal +
                 ", imagem='" + imagem + '\'' +
                 '}';

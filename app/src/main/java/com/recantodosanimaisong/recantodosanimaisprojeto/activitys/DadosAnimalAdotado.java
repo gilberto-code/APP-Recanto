@@ -91,13 +91,7 @@ public class DadosAnimalAdotado extends AppCompatActivity {
         text_porte.setText( animal_adotado.getPorte());
         text_cor.setText( animal_adotado.getCor());
         text_sexo.setText( animal_adotado.getSexo());
-        if(animal_adotado.getPrenha() == 1){
-            text_prenha.setText("Sim");
-        }else{
-            text_prenha.setText("Não");
-        }
-        text_temperamento.setText( animal_adotado.getTemperamento());
-        text_bairro_encontrado.setText( animal_adotado.getBairroEncontrado());
+
         if(animal_adotado.getVacinado() == 1){
             text_vacinado.setText("Sim");
         }else{
@@ -108,15 +102,8 @@ public class DadosAnimalAdotado extends AppCompatActivity {
         }else{
             text_castrado.setText("Não");
         }
-        if(animal_adotado.getAcidentado() == 1){
-            text_acidentado.setText("Sim");
-        }else{
-            text_acidentado.setText("Não");
-        }
+
         text_doencas.setText( animal_adotado.getQualDoenca());
-        text_acidentado.setText( animal_adotado.getQualAcidente());
-        text_nome_contato.setText( animal_adotado.getNomeContato());
-        text_telefone.setText( animal_adotado.getTelefoneContato());
         text_descricao.setText( animal_adotado.getDescricao());
 
 

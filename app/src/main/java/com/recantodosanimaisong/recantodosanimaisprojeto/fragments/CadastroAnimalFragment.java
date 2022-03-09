@@ -84,17 +84,10 @@ public class CadastroAnimalFragment extends Fragment implements AdapterView.OnIt
     private EditText ed_raca;
     private EditText ed_cor;
     private RadioGroup rg_sexo;
-    private RadioGroup rg_prenha;
-    private Spinner sp_temperamento;
-    private Spinner sp_bairroEncontrado;
     private RadioGroup rg_vacinado;
     private RadioGroup rg_castrado;
     private RadioGroup rg_doente;
     private EditText ed_doente;
-    private RadioGroup rg_acidentado;
-    private EditText ed_acidentado;
-    private EditText ed_nome_Contato;
-    private EditText ed_telefone;
     private EditText ed_descricao;
     private ImageView imageView;
 
@@ -125,17 +118,10 @@ public class CadastroAnimalFragment extends Fragment implements AdapterView.OnIt
         ed_raca = view.findViewById( R.id.ed_raca_animal);
         ed_cor = view.findViewById( R.id.ed_cor_animal);
         rg_sexo = view.findViewById( R.id.rg_sexo_animal);
-        rg_prenha = view.findViewById( R.id.rg_prenha_animal);
-        sp_temperamento = view.findViewById( R.id.spTemperamento);
-        sp_bairroEncontrado = view.findViewById( R.id.spBairroEncontrado);
         rg_vacinado = view.findViewById( R.id.rg_vacinado_animal);
         rg_castrado = view.findViewById( R.id.rg_castrado_animal);
         rg_doente = view.findViewById( R.id.rg_doente);
         ed_doente = view.findViewById( R.id.ed_qual_doenca);
-        rg_acidentado = view.findViewById( R.id.rg_acidentado);
-        ed_acidentado = view.findViewById( R.id.ed_qual_acidente);
-        ed_nome_Contato = view.findViewById( R.id.ed_nome_contato);
-        ed_telefone = view.findViewById( R.id.ed_telefone);
         ed_descricao = view.findViewById( R.id.ed_descricao_animal);
         imageView = view.findViewById( R.id.imagem_do_Animal);
 
@@ -181,17 +167,6 @@ public class CadastroAnimalFragment extends Fragment implements AdapterView.OnIt
             }
         } );
 
-        rg_sexo.setOnCheckedChangeListener( new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if(R.id.rb_femea == checkedId){
-                    rg_prenha.setVisibility( View.VISIBLE );
-                }else{
-                    rg_prenha.setVisibility( View.GONE );
-                }
-            }
-        } );
-
         rg_doente.setOnCheckedChangeListener( new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -203,16 +178,6 @@ public class CadastroAnimalFragment extends Fragment implements AdapterView.OnIt
             }
         } );
 
-        rg_acidentado.setOnCheckedChangeListener( new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if(R.id.rb_sim_acidentado == checkedId){
-                    ed_acidentado.setVisibility( View.VISIBLE );
-                }else{
-                    ed_acidentado.setVisibility( View.GONE );
-                }
-            }
-        } );
         return view;
     }
 
@@ -259,15 +224,6 @@ public class CadastroAnimalFragment extends Fragment implements AdapterView.OnIt
             castrado = 0;
         }
 
-        checkedRadioButtonId = rg_prenha.getCheckedRadioButtonId();
-        if(checkedRadioButtonId == R.id.rb_prenha_sim){
-            prenha = 1;
-        }else {
-            prenha = 0;
-        }
-
-        temperamento = sp_temperamento.getSelectedItem().toString();
-        bairroEncontrado = sp_bairroEncontrado.getSelectedItem().toString();
         descricao = ed_descricao.getText().toString();
 
         checkedRadioButtonId = rg_vacinado.getCheckedRadioButtonId();
@@ -285,17 +241,6 @@ public class CadastroAnimalFragment extends Fragment implements AdapterView.OnIt
         }
         qualDoenca = ed_doente.getText().toString();
 
-        checkedRadioButtonId = rg_acidentado.getCheckedRadioButtonId();
-        if(checkedRadioButtonId == R.id.rb_sim_acidentado){
-            acidentado = 1;
-        }else {
-            acidentado = 0;
-        }
-
-        qualAcidente = ed_acidentado.getText().toString();
-
-        nomeContato = ed_nome_Contato.getText().toString();
-        telefoneContato = ed_telefone.getText().toString();
 
         Calendar c = Calendar.getInstance();
         int dia = c.get(Calendar.DAY_OF_MONTH);
@@ -305,19 +250,24 @@ public class CadastroAnimalFragment extends Fragment implements AdapterView.OnIt
         String date = ano+"-"+(mes+1)+"-"+dia;
         dataDeCadastro = date;
 
+//        Animal(String nome, String especie, int idade, String raca,
+//                String cor, String porte, String sexo, String descricao,
+//                String dataDeCadastro, String qualDoenca,int doente,
+//          int castrado, int vacinado, int idAnimal, String imagem)
+
         animal = new Animal(nome, especie, idade, raca, cor,
-                porte, sexo, descricao, temperamento, bairroEncontrado,nomeContato,
-                telefoneContato,  dataDeCadastro,qualDoenca,  qualAcidente,  doente,  acidentado,  castrado,  vacinado,  prenha );
+                porte, sexo, descricao,  dataDeCadastro,qualDoenca,
+                doente,  castrado,  vacinado );
 
-
-        if(nome == "" || especie == "" || idade == 0 || raca  =="" || cor ==""||
-                porte == "" || sexo == ""|| descricao  == ""|| temperamento  == ""
-                || bairroEncontrado  ==""||nomeContato  ==""||
-                telefoneContato  ==""|| dataDeCadastro =="" ||qualDoenca =="" ||  qualAcidente =="") {
-            return null;
-        }else {
-            return animal;
-        }
+        return animal;
+//        if(nome == "" || especie == "" || idade == 0 || raca  =="" || cor ==""
+//                ||porte == "" || sexo == ""
+//                || descricao  == ""
+//                || dataDeCadastro =="" ||qualDoenca =="") {
+//            return null;
+//        }else {
+//            return animal;
+//        }
     }
 
     public void carregarSpinner(View view){
@@ -328,23 +278,10 @@ public class CadastroAnimalFragment extends Fragment implements AdapterView.OnIt
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener( this );
 
-        spinner = (Spinner) view.findViewById( R.id.spBairroEncontrado);
-        adapter = ArrayAdapter.createFromResource(getContext(),
-                R.array.bairro_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(  this );
 
         spinner = (Spinner) view.findViewById( R.id.spPorte);
         adapter = ArrayAdapter.createFromResource(getContext(),
                 R.array.porte_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(  this );
-
-        spinner = (Spinner) view.findViewById( R.id.spTemperamento);
-        adapter = ArrayAdapter.createFromResource(getContext(),
-                R.array.temperamento_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(  this );

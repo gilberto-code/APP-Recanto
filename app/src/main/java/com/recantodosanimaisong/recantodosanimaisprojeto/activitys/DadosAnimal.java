@@ -109,13 +109,8 @@ public class DadosAnimal extends AppCompatActivity {
         text_porte.setText( animal.getPorte());
         text_cor.setText( animal.getCor());
         text_sexo.setText( animal.getSexo());
-        if(animal.getPrenha() == 1){
-            text_prenha.setText("Sim");
-        }else{
-            text_prenha.setText("Não");
-        }
-        text_temperamento.setText( animal.getTemperamento());
-        text_bairro_encontrado.setText( animal.getBairroEncontrado());
+
+
         if(animal.getVacinado() == 1){
             text_vacinado.setText("Sim");
         }else{
@@ -126,15 +121,8 @@ public class DadosAnimal extends AppCompatActivity {
         }else{
             text_castrado.setText("Não");
         }
-        if(animal.getAcidentado() == 1){
-            text_acidentado.setText("Sim");
-        }else{
-            text_acidentado.setText("Não");
-        }
+
         text_doencas.setText( animal.getQualDoenca());
-        text_acidentado.setText( animal.getQualAcidente());
-        text_nome_contato.setText( animal.getNomeContato());
-        text_telefone.setText( animal.getTelefoneContato());
         text_descricao.setText( animal.getDescricao());
         adotarButton.setOnClickListener( new View.OnClickListener() {
             @Override
