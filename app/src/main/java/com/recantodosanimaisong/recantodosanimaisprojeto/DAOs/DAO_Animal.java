@@ -44,8 +44,8 @@ public class DAO_Animal {
                 {
                     @Override
                     public void onResponse(String response) {
-                        /*Toast.makeText( getContext(), "Animal Cadastrado", Toast.LENGTH_SHORT ).show();
-                        Log.i("teste", response);*/
+                        /*Toast.makeText( getContext(), "Animal Cadastrado", Toast.LENGTH_SHORT ).show();*/
+                        Log.i("loginho", response);
                         loading.dismiss();
                         uploadImage(animal.getImagem() , response , context);
                     }
@@ -54,7 +54,8 @@ public class DAO_Animal {
                 {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText( context, error.getMessage(), Toast.LENGTH_SHORT ).show();
+                        loading.dismiss();
+                        Toast.makeText( context, "Algo deu errado, favor verificar sua conexão", Toast.LENGTH_SHORT ).show();
                     }
                 }
         ) {
@@ -69,6 +70,8 @@ public class DAO_Animal {
                         .serializeNulls()
                         .create();
                 params.put("animal", gson.toJson(animal));
+                Log.i("loginho",gson.toJson(animal));
+
                 return params;
             }
         };
