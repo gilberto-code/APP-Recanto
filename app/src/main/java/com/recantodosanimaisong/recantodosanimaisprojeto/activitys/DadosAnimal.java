@@ -55,7 +55,6 @@ public class DadosAnimal extends AppCompatActivity {
     private TextView text_descricao;
 
     private ImageView imagemAnimalDesc;
-    private Button adotarButton;
     private Button btn_quero_adotar;
 
     @Override
@@ -84,7 +83,6 @@ public class DadosAnimal extends AppCompatActivity {
         text_doencas = findViewById( R.id.doencasAnimalDesc);
         text_descricao = findViewById( R.id.descricaoAnimalDesc);
         imagemAnimalDesc = findViewById( R.id.imagemAnimalDesc);
-        adotarButton = findViewById( R.id.btn_adotar);
         btn_quero_adotar = findViewById( R.id.btn_quero_adotar);
 
         Intent intent = getIntent( );

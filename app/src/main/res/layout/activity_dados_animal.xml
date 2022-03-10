@@ -319,17 +319,6 @@
                 tools:layout_editor_absoluteY="779dp" />
 
             <Button
-                android:id="@+id/btn_adotar"
-                android:layout_width="80dp"
-                android:layout_height="50dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="15dp"
-                android:layout_weight="0"
-                android:background="@color/colorAccent"
-                android:text="Adotar"
-                android:textColor="@android:color/white" />
-
-            <Button
                 android:id="@+id/btn_quero_adotar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
