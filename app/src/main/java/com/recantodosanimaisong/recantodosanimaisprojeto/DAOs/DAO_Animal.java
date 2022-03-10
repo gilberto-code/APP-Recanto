@@ -2,6 +2,7 @@ package com.recantodosanimaisong.recantodosanimaisprojeto.DAOs;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
@@ -150,6 +151,57 @@ public class DAO_Animal {
         }
     }
 
+    public void carregarPedidos(final RecyclerView recyclerView, final Context context ) {
+        final ArrayList<Animal> animais = new ArrayList<Animal>();
+        final ProgressDialog loading = ProgressDialog.show(context,
+                "Carregando lista...","Espere um segundo...",true,false);
+        try {
+            StringRequest stringRequest =
+                    new StringRequest(Request.Method.POST, Links.PEGAR_PEDIDOS, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Log.i("CARREGAR", response );
+                            try {
+                                Gson gson = new Gson();
+                                JSONArray jsonArray = new JSONArray(response);
+                                for (int a = 0; a < jsonArray.length(); a++) {
+                                    JSONObject js = jsonArray.getJSONObject(a);
+                                    animal = gson.fromJson(js.toString(), Animal.class);
+                                    animais.add(animal);
+                                }
+                                animalAdapter =  new AnimalAdapter( animais );
+                                recyclerView.setAdapter(animalAdapter );
+                                loading.dismiss();
+
+                            }   catch (JSONException e) {
+                                loading.dismiss();
+                                Toast.makeText(context, "Erro no acesso ao Banco \n Contate o Administrador", Toast.LENGTH_LONG).show();
+                                e.printStackTrace();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            loading.dismiss();
+                            Toast.makeText(context, "Erro no acesso ao Banco \n Contate o Administrador", Toast.LENGTH_LONG).show();
+                        }
+                    }){
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> params = new HashMap<String, String>();
+                            SharedPreferences prefs = context.getSharedPreferences(Links.LOGIN_PREFERENCE, 0);
+                            int idUser = prefs.getInt("idUser", 0);
+
+                            params.put("idUser", idUser+"");
+                            return params;
+                        }
+                    };;
+            //Log.i("CARREGAR",animaisTemp.size()+"" );
+            Mysingleton.getmInstance(context).addTpRequestque(stringRequest);
+        }catch (Exception ex) {
+            Toast.makeText(context, "Erro na chamada \n Contate o Administrador", Toast.LENGTH_SHORT).show();
+        }
+    }
     public AnimalAdapter getAnimalAdapter() {
         return animalAdapter;
     }

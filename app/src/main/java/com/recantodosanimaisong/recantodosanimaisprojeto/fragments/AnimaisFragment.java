@@ -104,50 +104,6 @@ public class AnimaisFragment extends Fragment {
     }
     public void carregarLista(){
         dao_animal.carregarLista(recyclerView , getContext());
-        /*try {
-            StringRequest stringRequest = new StringRequest( Request.Method.GET, URL, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                    Log.i("supertag","A resposta foi "+response);
-                    try {
-                        Gson gson = new Gson();
-                        JSONArray jsonArray = new JSONArray( response );
-                        Log.i( "CARREGAR" , jsonArray.length()+"");
-                        for(int a=0;a < jsonArray.length();a++){
-                            JSONObject js = jsonArray.getJSONObject(a);
-                            animal = gson.fromJson( js.toString() , Animal.class );
-                            animais.add( animal );
-                        }
-                        animalAdapter =  new AnimalAdapter( animais );
-                        recyclerView.setAdapter(animalAdapter );
-                        loading.dismiss();
-                    } catch (JSONException e) {
-                        loading.dismiss();
-                        Toast.makeText( getContext(), "Erro no acesso ao Banco \n Contate o Administrador", Toast.LENGTH_LONG ).show();
-                        e.printStackTrace();
-                    }
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Toast.makeText( getContext(), "Erro no acesso ao Banco \n Contate o Administrador", Toast.LENGTH_LONG ).show();
-                    loading.dismiss();
-                }
-            } ){
-                @Override
-                protected Map<String, String> getParams()
-                {
-                    Map<String, String>  params = new HashMap<String, String>();
-                    params.put("ID", animal.getIdAnimal()+"");
-                    return params;
-                }
-            };
-            //Log.i("CARREGAR",animaisTemp.size()+"" );
-            Mysingleton.getmInstance( getContext() ).addTpRequestque( stringRequest );
-        }catch(Exception ex){
-            Toast.makeText( getContext(), "Erro na chamada \n Contate o Administrador", Toast.LENGTH_SHORT ).show();
-            loading.dismiss();
-        }*/
     }
 
     public Bitmap StringToBitMap(String image){

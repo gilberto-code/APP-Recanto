@@ -11,6 +11,7 @@ public interface Links {
     public static final String ATUALIZAR_USER = "http://"+SERVER_ID+"/php/atualizar_user.php";
     public static final String PEGAR_USER = "http://"+SERVER_ID+"/php/pegar_user.php";
     public static final String ENVIAR_PEDIDO_ADOCAO = "http://"+SERVER_ID+"/php/enviar_pedido_adocao.php";
+    public static final String PEGAR_PEDIDOS = "http://"+SERVER_ID+"/php/pegar_meus_pedidos.php";
 
     public static final String LOGIN_PREFERENCE = "LOGIN";
 
