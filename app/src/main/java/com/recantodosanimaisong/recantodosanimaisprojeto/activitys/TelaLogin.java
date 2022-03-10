@@ -19,9 +19,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Conexao.Links;
 import com.recantodosanimaisong.recantodosanimaisprojeto.DAOs.DAO_Usuario;
 import com.recantodosanimaisong.recantodosanimaisprojeto.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -68,21 +72,28 @@ public class TelaLogin extends AppCompatActivity {
                             @Override
                             public void onResponse(String s) {
                                 loading.dismiss();
-                                if(Integer.parseInt(s) == 1){
-                                    Toast.makeText(context, "Logado", Toast.LENGTH_SHORT).show();
 
-                                    SharedPreferences.Editor editor =
-                                            context.getSharedPreferences(Links.LOGIN_PREFERENCE, 0).edit();
-                                    editor.putString("email", email);
-                                    editor.putString("senha", senha );
-                                    editor.commit();
+                                try {
+                                    JSONArray jsonArray = new JSONArray(s);
+                                    if(Integer.parseInt(jsonArray.get(0).toString()) == 1){
+                                        Toast.makeText(context, "Logado", Toast.LENGTH_SHORT).show();
 
-                                    Intent i = new Intent(context ,MainActivity.class);
-                                    context.startActivity(i);
-                                    finish();
-                                }else{
-                                    Log.i("aff", "111"+email+senha);
-                                    Toast.makeText(context, "Dados incorretos", Toast.LENGTH_SHORT).show();
+                                        SharedPreferences.Editor editor =
+                                                context.getSharedPreferences(Links.LOGIN_PREFERENCE, 0).edit();
+                                        editor.putString("email", email);
+                                        editor.putString("senha", senha );
+                                        editor.putInt("isAdm", Integer.parseInt(jsonArray.get(1).toString()));
+                                        editor.commit();
+
+                                        Intent i = new Intent(context ,MainActivity.class);
+                                        context.startActivity(i);
+                                        finish();
+                                    }else{
+                                        Log.i("aff", "111"+email+senha);
+                                        Toast.makeText(context, "Dados incorretos", Toast.LENGTH_SHORT).show();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
                                 }
                             }
                         },

@@ -35,6 +35,8 @@ public class Abertura extends AppCompatActivity {
 //        SharedPreferences.Editor editor =
 //                getSharedPreferences(Links.LOGIN_PREFERENCE, 0).edit();
 //        editor.putString("email", null);
+//        editor.putString("senha", null);
+//        editor.putInt("isAdm", 0);
 //        editor.commit();
 
 

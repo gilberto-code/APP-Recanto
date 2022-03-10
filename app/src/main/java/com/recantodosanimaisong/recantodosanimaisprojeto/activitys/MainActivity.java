@@ -1,6 +1,7 @@
 package com.recantodosanimaisong.recantodosanimaisprojeto.activitys;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -10,9 +11,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.recantodosanimaisong.recantodosanimaisprojeto.Conexao.Links;
 import com.recantodosanimaisong.recantodosanimaisprojeto.R;
 import com.recantodosanimaisong.recantodosanimaisprojeto.fragments.AnimaisFragment;
 import com.recantodosanimaisong.recantodosanimaisprojeto.fragments.Animais_Adotados;
@@ -78,6 +82,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
+        SharedPreferences prefs = getSharedPreferences(Links.LOGIN_PREFERENCE, 0);
+        int isAdm = prefs.getInt("isAdm", 0);
         if (id == R.id.nav_home) {
 //            Intent i = new Intent(getApplicationContext(), AdotarActivity.class);
 //            startActivity(i);
@@ -118,11 +124,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction.commit();
         }
         else if (id == R.id.nav_cadastrar_ainimal) {
-            //Toast.makeText( getApplicationContext() ,"Cadastrar Animal",Toast.LENGTH_SHORT ).show();
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            CadastroAnimalFragment cadastroAnimalFragment = new CadastroAnimalFragment();
-            fragmentTransaction.replace(R.id.fragment_container, cadastroAnimalFragment );
-            fragmentTransaction.commit();
+
+            if(isAdm == 0){
+                Toast.makeText(getApplicationContext(), "Permissão negada, somente para administradores", Toast.LENGTH_SHORT).show();
+            }else{
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                CadastroAnimalFragment cadastroAnimalFragment = new CadastroAnimalFragment();
+                fragmentTransaction.replace(R.id.fragment_container, cadastroAnimalFragment );
+                fragmentTransaction.commit();
+            }
         }
         DrawerLayout drawer = (DrawerLayout) findViewById( R.id.drawer_layout );
         drawer.closeDrawer( GravityCompat.START );
