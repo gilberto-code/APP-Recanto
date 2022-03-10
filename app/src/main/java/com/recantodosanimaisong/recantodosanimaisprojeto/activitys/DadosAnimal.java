@@ -2,6 +2,7 @@ package com.recantodosanimaisong.recantodosanimaisprojeto.activitys;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AlertDialog;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +29,7 @@ import com.bumptech.glide.Glide;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.recantodosanimaisong.recantodosanimaisprojeto.Conexao.Links;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Animal;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Pedido_Adocao;
 import com.recantodosanimaisong.recantodosanimaisprojeto.R;
@@ -46,18 +49,10 @@ public class DadosAnimal extends AppCompatActivity {
     private TextView text_cor;
     private TextView text_porte;
     private TextView text_sexo;
-    private TextView text_prenha;
-    private TextView text_temperamento;
-    private TextView text_bairro_encontrado;
     private TextView text_vacinado;
     private TextView text_doencas;
-    private TextView text_acidentado;
-    private TextView text_nome_contato;
-    private TextView text_telefone;
     private TextView text_castrado;
     private TextView text_descricao;
-
-    private String ENVIAR_PEDIDO_ADOCAO = "http://200.18.128.55/gilberto/banco_ong/enviar_pedido_adocao.php";
 
     private ImageView imagemAnimalDesc;
     private Button adotarButton;
@@ -85,14 +80,8 @@ public class DadosAnimal extends AppCompatActivity {
         text_cor = findViewById( R.id.corAnimalDesc);
         text_sexo = findViewById( R.id.sexoAnimalDesc);
         text_castrado = findViewById( R.id.castradoAnimalDesc);
-        text_prenha = findViewById( R.id.prenhaAnimalDesc);
-        text_temperamento = findViewById( R.id.temperamentoAnimalDesc);
-        text_bairro_encontrado = findViewById( R.id.bairroAnimalDesc);
         text_vacinado = findViewById( R.id.vacinadoAnimalDesc);
-        text_acidentado = findViewById( R.id.acidentadoAnimalDesc);
         text_doencas = findViewById( R.id.doencasAnimalDesc);
-        text_nome_contato = findViewById( R.id.nomeContatoAnimalDesc);
-        text_telefone = findViewById( R.id.telefoneAnimalDesc);
         text_descricao = findViewById( R.id.descricaoAnimalDesc);
         imagemAnimalDesc = findViewById( R.id.imagemAnimalDesc);
         adotarButton = findViewById( R.id.btn_adotar);
@@ -124,15 +113,6 @@ public class DadosAnimal extends AppCompatActivity {
 
         text_doencas.setText( animal.getQualDoenca());
         text_descricao.setText( animal.getDescricao());
-        adotarButton.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Intent i = new Intent(getApplicationContext(), AdotarActivity.class);
-//                //i.putExtra("animal" , animal);
-//                i.putExtra("animal" , animal);
-//                startActivity(i);
-            }
-        } );
         btn_quero_adotar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -173,10 +153,11 @@ public class DadosAnimal extends AppCompatActivity {
         builder.setPositiveButton( "Confirmar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                //Toast.makeText( AdotarActivity.this, "O animal foi adotado", Toast.LENGTH_SHORT ).show();
-                //loading.show();
-                //Toast.makeText(DadosAnimal.this, "Oi", Toast.LENGTH_SHORT).show();
-                Pedido_Adocao pedido_adocao = new Pedido_Adocao("uma desc qualquer", animal.getIdAnimal() ,4);
+                SharedPreferences prefs = getSharedPreferences(Links.LOGIN_PREFERENCE, 0);
+                int idUser = prefs.getInt("idUser", 0);
+                Log.i("aff", idUser+"");
+                Pedido_Adocao pedido_adocao = new Pedido_Adocao("Quero adotar",
+                        animal.getIdAnimal() , idUser);
                 envio_pedido(pedido_adocao);
             }
         } );
@@ -192,7 +173,7 @@ public class DadosAnimal extends AppCompatActivity {
         //Showing the progress dialog
 /*        final ProgressDialog loading = ProgressDialog.show(getApplicationContext(),
                 "Enviando pedido...","Por favor espere um pouco...",false,false);*/
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, ENVIAR_PEDIDO_ADOCAO,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Links.ENVIAR_PEDIDO_ADOCAO,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {

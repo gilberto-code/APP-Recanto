@@ -30,14 +30,8 @@ public class DadosAnimalAdotado extends AppCompatActivity {
     private TextView text_cor;
     private TextView text_porte;
     private TextView text_sexo;
-    private TextView text_prenha;
-    private TextView text_temperamento;
-    private TextView text_bairro_encontrado;
     private TextView text_vacinado;
     private TextView text_doencas;
-    private TextView text_acidentado;
-    private TextView text_nome_contato;
-    private TextView text_telefone;
     private TextView text_castrado;
     private TextView text_descricao;
     private ImageView imagemAnimalDesc;
@@ -68,14 +62,8 @@ public class DadosAnimalAdotado extends AppCompatActivity {
         text_cor = findViewById( R.id.corAnimalDesc);
         text_sexo = findViewById( R.id.sexoAnimalDesc);
         text_castrado = findViewById( R.id.castradoAnimalDesc);
-        text_prenha = findViewById( R.id.prenhaAnimalDesc);
-        text_temperamento = findViewById( R.id.temperamentoAnimalDesc);
-        text_bairro_encontrado = findViewById( R.id.bairroAnimalDesc);
         text_vacinado = findViewById( R.id.vacinadoAnimalDesc);
-        text_acidentado = findViewById( R.id.acidentadoAnimalDesc);
         text_doencas = findViewById( R.id.doencasAnimalDesc);
-        text_nome_contato = findViewById( R.id.nomeContatoAnimalDesc);
-        text_telefone = findViewById( R.id.telefoneAnimalDesc);
         text_descricao = findViewById( R.id.descricaoAnimalDesc);
         imagemAnimalDesc = findViewById( R.id.imagemAnimalDesc);
 

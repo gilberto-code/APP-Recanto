@@ -5,8 +5,11 @@
       <map>
         <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/drawable/side_nav_bar.xml" value="0.240625" />
         <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/activity_abertura.xml" value="0.22" />
+        <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/activity_adotar.xml" value="0.33" />
         <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/activity_cadastrar_usuario.xml" value="0.25" />
         <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/activity_cadastro.xml" value="0.16530797101449277" />
+        <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/activity_dados_animal.xml" value="0.33" />
+        <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/activity_dados_animal_adotado.xml" value="0.33" />
         <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/activity_main.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/activity_tela_login.xml" value="0.25" />
         <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/app_bar_main.xml" value="0.22447916666666667" />
