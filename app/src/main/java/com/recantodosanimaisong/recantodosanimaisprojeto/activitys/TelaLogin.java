@@ -82,7 +82,8 @@ public class TelaLogin extends AppCompatActivity {
                                                 context.getSharedPreferences(Links.LOGIN_PREFERENCE, 0).edit();
                                         editor.putString("email", email);
                                         editor.putString("senha", senha );
-                                        editor.putInt("isAdm", Integer.parseInt(jsonArray.get(1).toString()));
+                                        editor.putInt("idUser", Integer.parseInt(jsonArray.get(1).toString()));
+                                        editor.putInt("isAdm", Integer.parseInt(jsonArray.get(2).toString()));
                                         editor.commit();
 
                                         Intent i = new Intent(context ,MainActivity.class);
