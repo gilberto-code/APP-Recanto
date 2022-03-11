@@ -25,6 +25,7 @@ import com.google.gson.Gson;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Adapter.AnimalAdapter;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Adapter.AnimalAdotadoAdapter;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Adapter.RecyclerItemClickListener;
+import com.recantodosanimaisong.recantodosanimaisprojeto.Conexao.Links;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Animal;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Animal_Adotado;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Mysingleton;
@@ -57,7 +58,6 @@ public class Animais_Adotados extends Fragment {
     private Animal_Adotado animal;
     private AnimalAdotadoAdapter animalAdotadoAdapter;
 
-    private String URL = "http://200.18.128.55/gilberto/banco_ong/pegar_animais_adotados.php";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -97,7 +97,7 @@ public class Animais_Adotados extends Fragment {
         final ProgressDialog loading = ProgressDialog.show(getContext(),
                 "Carregando lista...","Espere um segundo...",true,false);
         try {
-            StringRequest stringRequest = new StringRequest( Request.Method.GET, URL, new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest( Request.Method.GET, Links.PEGAR_ANIMAIS_ADOTADOS, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     Log.i("supertag","A resposta foi "+response);

@@ -72,7 +72,7 @@ public class Abertura extends AppCompatActivity {
                     finish();
                 }
             }
-        }, 0);
+        }, 2000);
 
     }
 }

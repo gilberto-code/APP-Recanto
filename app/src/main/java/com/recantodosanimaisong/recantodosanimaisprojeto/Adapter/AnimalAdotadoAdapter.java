@@ -89,9 +89,14 @@ public class AnimalAdotadoAdapter extends RecyclerView.Adapter<AnimalAdotadoAdap
         return list_animal.size();
     }
     public Bitmap StringToBitMap(String image){
-        byte [] encodeByte= Base64.decode(image,Base64.DEFAULT);
-        InputStream inputStream  = new ByteArrayInputStream(encodeByte);
-        Bitmap bitmap  = BitmapFactory.decodeStream(inputStream);
-        return bitmap;
+
+        if(image != null){
+            byte [] encodeByte= Base64.decode(image,Base64.DEFAULT);
+            InputStream inputStream  = new ByteArrayInputStream(encodeByte);
+            Bitmap bitmap  = BitmapFactory.decodeStream(inputStream);
+            return bitmap;
+        }else{
+            return null;
+        }
     }
 }
