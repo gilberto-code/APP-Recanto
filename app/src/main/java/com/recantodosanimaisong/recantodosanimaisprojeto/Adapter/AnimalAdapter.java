@@ -32,7 +32,6 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder
         private TextView textDescricao;
         private ImageView imageAnimal;
 
-
         public ViewHolder(View v) {
             super(v);
             textNome = itemView.findViewById(R.id.textNome);
@@ -41,7 +40,6 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder
             textDescricao = itemView.findViewById(R.id.textDescricao);
             imageAnimal = itemView.findViewById( R.id.imageView);
             textIdade = itemView.findViewById( R.id.textIdade);
-//            itemView.setOnClickListener( (View.OnClickListener) this );
         }
     }
     public void add(int position, Animal animal) {
@@ -80,11 +78,8 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder
         }else{
             holder.textCastrado.setText( "Não");
         }
-        //Glide.with(holder.imageAnimal.getContext()).load(null).into(holder.imageAnimal);
         byte[] imagem = StringByte( list_animal.get( position ).getImagem() );
         Glide.with(holder.imageAnimal.getContext()).load(imagem).into(holder.imageAnimal);
-        //Glide.with(holder.imageAnimal.getContext()).load)
-
     }
     @Override
     public int getItemCount() {
@@ -93,7 +88,6 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder
     public byte[] StringByte(String image){
         if(image!=null){
             byte [] encodeByte= Base64.decode(image,Base64.DEFAULT);
-            InputStream inputStream  = new ByteArrayInputStream(encodeByte);
             return encodeByte;
         }else{
             return null;

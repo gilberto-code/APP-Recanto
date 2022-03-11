@@ -20,9 +20,6 @@ import java.util.ArrayList;
 
 public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.ViewHolder> {
 
-    //Context context;
-
-
     private ArrayList<Pedido_Adocao> pedidoAdocaos = new ArrayList<Pedido_Adocao>(  );
 
     public class ViewHolder extends RecyclerView.ViewHolder {

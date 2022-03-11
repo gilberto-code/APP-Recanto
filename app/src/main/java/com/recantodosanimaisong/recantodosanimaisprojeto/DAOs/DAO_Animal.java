@@ -35,7 +35,6 @@ public class DAO_Animal {
     private AnimalAdapter animalAdapter;
     final String KEY_IMAGE = "imagem";
     private Animal animal;
-    final String KEY_ID = "id";
 
     public void enviarAnimal(final Animal animal , final Context context){
         final ProgressDialog loading = ProgressDialog.show(context,
@@ -46,7 +45,6 @@ public class DAO_Animal {
                     @Override
                     public void onResponse(String response) {
                         /*Toast.makeText( getContext(), "Animal Cadastrado", Toast.LENGTH_SHORT ).show();*/
-                        Log.i("loginho", response);
                         loading.dismiss();
                         uploadImage(animal.getImagem() , response , context);
                     }
@@ -71,7 +69,6 @@ public class DAO_Animal {
                         .serializeNulls()
                         .create();
                 params.put("animal", gson.toJson(animal));
-                Log.i("loginho",gson.toJson(animal));
 
                 return params;
             }
@@ -144,7 +141,6 @@ public class DAO_Animal {
                     Toast.makeText(context, "Erro no acesso ao Banco \n Contate o Administrador", Toast.LENGTH_LONG).show();
                 }
             });
-            //Log.i("CARREGAR",animaisTemp.size()+"" );
             Mysingleton.getmInstance(context).addTpRequestque(stringRequest);
         }catch (Exception ex) {
             Toast.makeText(context, "Erro na chamada \n Contate o Administrador", Toast.LENGTH_SHORT).show();
@@ -160,7 +156,6 @@ public class DAO_Animal {
                     new StringRequest(Request.Method.POST, Links.PEGAR_PEDIDOS, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                            Log.i("CARREGAR", response );
                             try {
                                 Gson gson = new Gson();
                                 JSONArray jsonArray = new JSONArray(response);
@@ -196,7 +191,6 @@ public class DAO_Animal {
                             return params;
                         }
                     };;
-            //Log.i("CARREGAR",animaisTemp.size()+"" );
             Mysingleton.getmInstance(context).addTpRequestque(stringRequest);
         }catch (Exception ex) {
             Toast.makeText(context, "Erro na chamada \n Contate o Administrador", Toast.LENGTH_SHORT).show();
@@ -206,7 +200,4 @@ public class DAO_Animal {
         return animalAdapter;
     }
 
-    public void setAnimalAdapter(AnimalAdapter animalAdapter) {
-        this.animalAdapter = animalAdapter;
-    }
 }

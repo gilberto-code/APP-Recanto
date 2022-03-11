@@ -20,7 +20,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class AnimalAdotadoAdapter extends RecyclerView.Adapter<AnimalAdotadoAdapter.ViewHolder>{
-    Context context;
+
     private ArrayList<Animal> list_animal = new ArrayList<Animal>(  );
     public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -40,7 +40,6 @@ public class AnimalAdotadoAdapter extends RecyclerView.Adapter<AnimalAdotadoAdap
             textDescricao = itemView.findViewById(R.id.textDescricao);
             imageAnimal = itemView.findViewById( R.id.imageView);
             textIdade = itemView.findViewById( R.id.textIdade);
-//            itemView.setOnClickListener( (View.OnClickListener) this );
         }
     }
     public void add(int position, Animal animal) {
@@ -80,7 +79,6 @@ public class AnimalAdotadoAdapter extends RecyclerView.Adapter<AnimalAdotadoAdap
         }else{
             holder.textCastrado.setText( "Não");
         }
-        //Glide.with(holder.imageAnimal.getContext()).load(null).into(holder.imageAnimal);
         imagem = StringToBitMap( list_animal.get( position ).getImagem() );
         Glide.with(holder.imageAnimal.getContext()).load(imagem).into(holder.imageAnimal);
     }
