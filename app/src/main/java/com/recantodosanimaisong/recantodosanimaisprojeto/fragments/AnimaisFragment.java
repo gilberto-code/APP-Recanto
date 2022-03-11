@@ -70,8 +70,6 @@ public class AnimaisFragment extends Fragment {
                 new RecyclerItemClickListener( getContext(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                //Animal animal = animalAdapter.getItem( position );
-
                 Animal animal = dao_animal.getAnimalAdapter().getItem( position );
                 Intent i = new Intent(getContext(), DadosAnimal.class);
                 Log.i("testando", animal.toString());
@@ -91,53 +89,12 @@ public class AnimaisFragment extends Fragment {
         } ) );
 
         carregarLista();
-        //Log.i( "CARREGAR" ,animais.size()+"size" );
-        //Log.i( "CARREGAR", animais.size()+"" );
         return view;
     }
     public void carregarLista(){
         dao_animal.carregarLista(recyclerView , getContext());
     }
 
-    public Bitmap StringToBitMap(String image){
-        byte [] encodeByte= Base64.decode(image,Base64.DEFAULT);
-        InputStream inputStream  = new ByteArrayInputStream(encodeByte);
-        Bitmap bitmap  = BitmapFactory.decodeStream(inputStream);
-        return bitmap;
-    }
-    public void showAlertDialogButtonClicked() {
-        LayoutInflater inflater = getLayoutInflater();
-        View dialoglayout = inflater.inflate(R.layout.pesquisa_alert_custumer, null);
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setView(dialoglayout);
-        builder.setTitle( "Pesquisa" );
-
-        final TextView txt_pesq_nome = dialoglayout.findViewById( R.id.text_pesq_nome );
-        final TextView txt_pesq_idade = dialoglayout.findViewById( R.id.text_pesq_idade );
-
-        builder.setPositiveButton( "Confirmar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String nome ,idade;
-                nome = txt_pesq_nome.getText().toString();
-                idade = txt_pesq_idade.getText().toString();
-
-                //Toast.makeText( AdotarActivity.this, "O animal foi adotado", Toast.LENGTH_SHORT ).show();
-                //loading.show();
-                //Toast.makeText(DadosAnimal.this, "Oi", Toast.LENGTH_SHORT).show();
-                Toast.makeText(getContext(), nome, Toast.LENGTH_SHORT).show();
-                pegar_animais_pesquisa(nome, idade);
-
-            }
-        } );
-        builder.setNegativeButton( "Cancelar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        } );
-        builder.show();
-    }
     private void pegar_animais_pesquisa(final String nome , final String idade) {
         //Showing the progress dialog
         final ProgressDialog loading = ProgressDialog.show(getContext(),
@@ -147,18 +104,14 @@ public class AnimaisFragment extends Fragment {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
-                        Log.i("supertag", "A resposta foi " + s);
                         try {
                             Gson gson = new Gson();
                             JSONArray jsonArray = new JSONArray(s);
-                            Log.i("CARREGAR", jsonArray.length() + "");
                             for (int a = 0; a < jsonArray.length(); a++) {
                                 JSONObject js = jsonArray.getJSONObject(a);
                                 animal = gson.fromJson(js.toString(), Animal.class);
                                 animais.add(animal);
                             }
-                            //animalAdapter = new AnimalAdapter(animais);
-                            //recyclerView.setAdapter(animalAdapter);
                             loading.dismiss();
                         } catch (JSONException e) {
                             loading.dismiss();
@@ -189,7 +142,6 @@ public class AnimaisFragment extends Fragment {
     @CallSuper
     public void onDetach() {
         super.onDetach();
-        Log.i("fui", "legal");
     }
 }
 

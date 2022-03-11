@@ -73,30 +73,30 @@ public class CadastroAnimalFragment extends Fragment implements AdapterView.OnIt
         // Required empty public constructor
     }
 
-    private Button cadastrar;
-    private ImageButton adc_foto;
-    private ImageButton adc_foto_camera;
-    private EditText ed_nome;
-    private Spinner sp_especie;
-    private SeekBar sk_idade;
-    private TextView txIdadeSpinner;
-    private Spinner sp_porte;
-    private EditText ed_raca;
-    private EditText ed_cor;
-    private RadioGroup rg_sexo;
-    private RadioGroup rg_vacinado;
-    private RadioGroup rg_castrado;
-    private RadioGroup rg_doente;
-    private EditText ed_doente;
-    private EditText ed_descricao;
-    private ImageView imageView;
+     Button cadastrar;
+     ImageButton adc_foto;
+     ImageButton adc_foto_camera;
+     EditText ed_nome;
+     Spinner sp_especie;
+     SeekBar sk_idade;
+     TextView txIdadeSpinner;
+     Spinner sp_porte;
+     EditText ed_raca;
+     EditText ed_cor;
+     RadioGroup rg_sexo;
+     RadioGroup rg_vacinado;
+     RadioGroup rg_castrado;
+     RadioGroup rg_doente;
+     EditText ed_doente;
+     EditText ed_descricao;
+     ImageView imageView;
 
-    private int PICK_IMAGE_REQUEST = 1;
+     int PICK_IMAGE_REQUEST = 1;
     static final int REQUEST_IMAGE_CAPTURE = 2;
-    private static final int MY_CAMERA_REQUEST_CODE = 100;
+     static final int MY_CAMERA_REQUEST_CODE = 100;
 
     Bitmap imagemAnimal;
-    private DAO_Animal dao_animal = new DAO_Animal();
+     DAO_Animal dao_animal = new DAO_Animal();
 
     public void pedir_permissao (){
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA)
@@ -250,24 +250,11 @@ public class CadastroAnimalFragment extends Fragment implements AdapterView.OnIt
         String date = ano+"-"+(mes+1)+"-"+dia;
         dataDeCadastro = date;
 
-//        Animal(String nome, String especie, int idade, String raca,
-//                String cor, String porte, String sexo, String descricao,
-//                String dataDeCadastro, String qualDoenca,int doente,
-//          int castrado, int vacinado, int idAnimal, String imagem)
-
         animal = new Animal(nome, especie, idade, raca, cor,
                 porte, sexo, descricao,  dataDeCadastro,qualDoenca,
                 doente,  castrado,  vacinado );
 
         return animal;
-//        if(nome == "" || especie == "" || idade == 0 || raca  =="" || cor ==""
-//                ||porte == "" || sexo == ""
-//                || descricao  == ""
-//                || dataDeCadastro =="" ||qualDoenca =="") {
-//            return null;
-//        }else {
-//            return animal;
-//        }
     }
 
     public void carregarSpinner(View view){
@@ -287,7 +274,7 @@ public class CadastroAnimalFragment extends Fragment implements AdapterView.OnIt
         spinner.setOnItemSelectedListener(  this );
     }
 
-    private void showFileChooser() {
+     void showFileChooser() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -320,7 +307,7 @@ public class CadastroAnimalFragment extends Fragment implements AdapterView.OnIt
     @Override
     public void onNothingSelected(AdapterView<?> parent) {}
 
-    private void dispatchTakePictureIntent(Context context) {
+     public void dispatchTakePictureIntent(Context context) {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(context.getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);

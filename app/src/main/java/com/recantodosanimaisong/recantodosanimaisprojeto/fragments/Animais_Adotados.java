@@ -52,11 +52,10 @@ public class Animais_Adotados extends Fragment {
     public Animais_Adotados() {
         // Required empty public constructor
     }
-
-    private RecyclerView recyclerView;
-    private ArrayList<Animal> animais = new ArrayList<Animal>(  );
-    private Animal_Adotado animal;
-    private AnimalAdotadoAdapter animalAdotadoAdapter;
+     RecyclerView recyclerView;
+     ArrayList<Animal> animais = new ArrayList<Animal>(  );
+     Animal_Adotado animal;
+     AnimalAdotadoAdapter animalAdotadoAdapter;
 
 
     @Override
@@ -69,12 +68,10 @@ public class Animais_Adotados extends Fragment {
                 , recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                //Animal animal = animalAdapter.getItem( position );
                 Animal_Adotado animal = (Animal_Adotado) animalAdotadoAdapter.getItem( position );
                 Intent i = new Intent(getContext(), DadosAnimalAdotado.class);
                 i.putExtra("animal_adotado" , animal);
                 startActivity(i);
-
                 Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
             }
 
@@ -89,8 +86,6 @@ public class Animais_Adotados extends Fragment {
             }
         } ) );
         carregarLista();
-        //Log.i( "CARREGAR" ,animais.size()+"size" );
-        //Log.i( "CARREGAR", animais.size()+"" );
         return view;
     }
     public void carregarLista(){
@@ -100,11 +95,9 @@ public class Animais_Adotados extends Fragment {
             StringRequest stringRequest = new StringRequest( Request.Method.GET, Links.PEGAR_ANIMAIS_ADOTADOS, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    Log.i("supertag","A resposta foi "+response);
                     try {
                         Gson gson = new Gson();
                         JSONArray jsonArray = new JSONArray( response );
-                        Log.i( "CARREGAR" , jsonArray.length()+"");
                         for(int a=0;a < jsonArray.length();a++){
                             JSONObject js = jsonArray.getJSONObject(a);
                             animal = gson.fromJson( js.toString() , Animal_Adotado.class );
@@ -125,29 +118,11 @@ public class Animais_Adotados extends Fragment {
                     Toast.makeText( getContext(), "Erro no acesso ao Banco \n Contate o Administrador", Toast.LENGTH_LONG ).show();
                     loading.dismiss();
                 }
-            } ){
-                @Override
-                protected Map<String, String> getParams()
-                {
-                    Map<String, String>  params = new HashMap<String, String>();
-                    params.put("CHAVE", "ghgfh");
-                    return params;
-                }
-            };
-            //Log.i("CARREGAR",animaisTemp.size()+"" );
+            } );
             Mysingleton.getmInstance( getContext() ).addTpRequestque( stringRequest );
         }catch(Exception ex){
             Toast.makeText( getContext(), "Erro na chamada \n Contate o Administrador", Toast.LENGTH_SHORT ).show();
             loading.dismiss();
         }
     }
-
-    public Bitmap StringToBitMap(String image){
-        byte [] encodeByte= Base64.decode(image,Base64.DEFAULT);
-        InputStream inputStream  = new ByteArrayInputStream(encodeByte);
-        Bitmap bitmap  = BitmapFactory.decodeStream(inputStream);
-        return bitmap;
-    }
-
-
 }

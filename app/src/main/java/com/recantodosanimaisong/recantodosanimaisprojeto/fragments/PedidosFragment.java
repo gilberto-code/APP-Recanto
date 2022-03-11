@@ -76,7 +76,6 @@ public class PedidosFragment extends Fragment {
                 new RecyclerItemClickListener( getContext(), recyclerPedido, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        //Animal animal = animalAdapter.getItem( position );
 
                         Animal animal = dao_animal.getAnimalAdapter().getItem( position );
                         Intent i = new Intent(getContext(), DadosAnimal.class);
@@ -106,14 +105,7 @@ public class PedidosFragment extends Fragment {
                             }
                             @Override
                             public void onItemClick(View view, int position) {
-                                //Animal animal = animalAdapter.getItem( position );
 
-                                //Toast.makeText(getContext(), "ss", Toast.LENGTH_SHORT).show();
-                                /*Pedido_Adocao pedidoAdocao = pedidoAdapter.getItem( position );
-                                Intent i = new Intent(getContext(), DadosAnimal.class);
-                                Log.i("testando", pedidoAdocao.toString());
-                                i.putExtra("animal" , pe);
-                                startActivity(i);*/
                             }
 
                             @Override
@@ -123,67 +115,5 @@ public class PedidosFragment extends Fragment {
                         }));
         dao_animal.carregarPedidos(recyclerPedido, getContext());
         return  view;
-    }
-
-    private void carregarLista() {
-        //Showing the progress dialog
-        final ProgressDialog loading = ProgressDialog.show(getContext(),
-                "Carregando Lista...", "Por favor espere um pouco...", false, false);
-        final ArrayList<Animal> animais = new ArrayList<Animal>();
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Links.PEGAR_PEDIDOS,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String s) {
-                        Log.i("supertag", "A resposta foi " + s);
-                        try {
-                            Gson gson = new Gson();
-                            JSONArray jsonArray = new JSONArray( s );
-                            for(int a=0;a < jsonArray.length();a++){
-                                JSONObject js = jsonArray.getJSONObject(a);
-                                pedidoAdocao = gson.fromJson( js.toString() , Pedido_Adocao.class );
-                                Log.i( "CARREGAR" , pedidoAdocao.toString());
-                                pedidoAdocaos.add(pedidoAdocao);
-                            }
-                            pedidoAdapter =  new PedidoAdapter(pedidoAdocaos);
-                            recyclerPedido.setAdapter(pedidoAdapter );
-                            loading.dismiss();
-                            //animalAdapter = new AnimalAdapter(animais);
-                            //recyclerView.setAdapter(animalAdapter);
-                            loading.dismiss();
-                        } catch (JSONException e) {
-                            loading.dismiss();
-                            Toast.makeText(getContext(), "Erro no acesso ao Banco \n Contate o Administrador", Toast.LENGTH_LONG).show();
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError volleyError) {
-                        loading.dismiss();
-                        Toast.makeText(getContext(), volleyError.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<String, String>();
-                SharedPreferences prefs = getActivity().getSharedPreferences(Links.LOGIN_PREFERENCE, 0);
-                int idUser = prefs.getInt("idUser", 0);
-
-                params.put("idUser", idUser+"");
-                return params;
-            }
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        //Adding request to the queue
-        requestQueue.add(stringRequest);
-    }
-
-
-    public Bitmap StringToBitMap(String image){
-        byte [] encodeByte= Base64.decode(image,Base64.DEFAULT);
-        InputStream inputStream  = new ByteArrayInputStream(encodeByte);
-        Bitmap bitmap  = BitmapFactory.decodeStream(inputStream);
-        return bitmap;
     }
 }
