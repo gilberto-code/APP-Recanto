@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.recantodosanimaisong.recantodosanimaisprojeto.Conexao.Links;
+import com.recantodosanimaisong.recantodosanimaisprojeto.HomeFragment;
 import com.recantodosanimaisong.recantodosanimaisprojeto.R;
 import com.recantodosanimaisong.recantodosanimaisprojeto.fragments.AnimaisFragment;
 import com.recantodosanimaisong.recantodosanimaisprojeto.fragments.Animais_Adotados;
@@ -40,6 +41,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById( R.id.nav_view );
         navigationView.setNavigationItemSelectedListener( this );
+
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        HomeFragment homeFragment = new HomeFragment();
+        fragmentTransaction.replace( R.id.fragment_container, homeFragment );
+        fragmentTransaction.commit();
     }
 
     @Override
@@ -80,9 +87,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         SharedPreferences prefs = getSharedPreferences(Links.LOGIN_PREFERENCE, 0);
         int isAdm = prefs.getInt("isAdm", 0);
+
         if (id == R.id.nav_home) {
-//            Intent i = new Intent(getApplicationContext(), AdotarActivity.class);
-//            startActivity(i);
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            AnimaisFragment animaisFragment = new AnimaisFragment();
+            fragmentTransaction.replace( R.id.fragment_container, animaisFragment );
+            fragmentTransaction.commit();
         }
         else if (id == R.id.nav_animais) {
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

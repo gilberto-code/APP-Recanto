@@ -3,12 +3,10 @@ package com.recantodosanimaisong.recantodosanimaisprojeto.fragments;
 
 
 import android.Manifest;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -16,7 +14,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.util.Base64;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,36 +27,16 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.google.gson.FieldNamingPolicy;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.recantodosanimaisong.recantodosanimaisprojeto.DAOs.DAO_Animal;
-import com.recantodosanimaisong.recantodosanimaisprojeto.DAOs.DAO_Usuario;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Animal;
-import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Mysingleton;
-import com.recantodosanimaisong.recantodosanimaisprojeto.Model.RandomString;
 import com.recantodosanimaisong.recantodosanimaisprojeto.R;
 import com.recantodosanimaisong.recantodosanimaisprojeto.activitys.DadosAnimal;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Map;
 
 import static android.app.Activity.RESULT_OK;
 
