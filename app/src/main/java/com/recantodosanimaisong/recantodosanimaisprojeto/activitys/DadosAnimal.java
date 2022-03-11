@@ -41,21 +41,21 @@ import java.util.Map;
 
 public class DadosAnimal extends AppCompatActivity {
 
-    private Animal animal;
-    private TextView text_nome;
-    private TextView text_especie;
-    private TextView text_idade;
-    private TextView text_raca;
-    private TextView text_cor;
-    private TextView text_porte;
-    private TextView text_sexo;
-    private TextView text_vacinado;
-    private TextView text_doencas;
-    private TextView text_castrado;
-    private TextView text_descricao;
+    Animal animal;
+     TextView text_nome;
+     TextView text_especie;
+     TextView text_idade;
+     TextView text_raca;
+     TextView text_cor;
+     TextView text_porte;
+     TextView text_sexo;
+     TextView text_vacinado;
+     TextView text_doencas;
+     TextView text_castrado;
+     TextView text_descricao;
 
-    private ImageView imagemAnimalDesc;
-    private Button btn_quero_adotar;
+     ImageView imagemAnimalDesc;
+     Button btn_quero_adotar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,7 +127,6 @@ public class DadosAnimal extends AppCompatActivity {
         if (item.getItemId() == android.R.id.home) {
             finish(); // close this activity and return to preview activity (if there is any)
         }
-
         return super.onOptionsItemSelected(item);
     }
     public Bitmap StringToBitMap(String image){
@@ -138,13 +137,8 @@ public class DadosAnimal extends AppCompatActivity {
     }
     public void showAlertDialogButtonClicked(final Animal animal) {
 
-        // ProgressDialog loading = ProgressDialog.show(getApplicationContext(),
-        //       "Carregando lista...","Espere um segundo...",true,false);
-        // loading.dismiss();
-
-
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle( "Pedido_Adocao de adoção" );
+        builder.setTitle( "Pedido Adoção" );
 
         builder.setMessage("Você deseja enviar um pedido de adoção ONG");
 
@@ -153,7 +147,6 @@ public class DadosAnimal extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 SharedPreferences prefs = getSharedPreferences(Links.LOGIN_PREFERENCE, 0);
                 int idUser = prefs.getInt("idUser", 0);
-                Log.i("aff", idUser+"");
                 Pedido_Adocao pedido_adocao = new Pedido_Adocao("Quero adotar",
                         animal.getIdAnimal() , idUser);
                 envio_pedido(pedido_adocao);
@@ -168,22 +161,16 @@ public class DadosAnimal extends AppCompatActivity {
         builder.show();
     }
     private void envio_pedido(final Pedido_Adocao pedido_adocao){
-        //Showing the progress dialog
-/*        final ProgressDialog loading = ProgressDialog.show(getApplicationContext(),
-                "Enviando pedido...","Por favor espere um pouco...",false,false);*/
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Links.ENVIAR_PEDIDO_ADOCAO,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
-                        //Disimissing the progress dialog
-                        //loading.dismiss();
                         Toast.makeText(getApplicationContext(), "Pedido enviado com sucesso", Toast.LENGTH_SHORT).show();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        //loading.dismiss();
                         Toast.makeText(getApplicationContext(), volleyError.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }){

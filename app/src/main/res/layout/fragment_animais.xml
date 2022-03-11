@@ -9,12 +9,6 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <Button
-        android:id="@+id/btn_filtrar_animais"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Filtrar" />
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_animais"
         android:layout_width="match_parent"

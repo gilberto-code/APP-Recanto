@@ -49,7 +49,6 @@ public class TelaLogin extends AppCompatActivity {
 
         context= this;
 
-
         buttonCadastro.setOnClickListener(new View.OnClickListener() {
 
            @Override
@@ -72,12 +71,10 @@ public class TelaLogin extends AppCompatActivity {
                             @Override
                             public void onResponse(String s) {
                                 loading.dismiss();
-
                                 try {
                                     JSONArray jsonArray = new JSONArray(s);
                                     if(Integer.parseInt(jsonArray.get(0).toString()) == 1){
                                         Toast.makeText(context, "Logado", Toast.LENGTH_SHORT).show();
-
                                         SharedPreferences.Editor editor =
                                                 context.getSharedPreferences(Links.LOGIN_PREFERENCE, 0).edit();
                                         editor.putString("email", email);
@@ -90,7 +87,6 @@ public class TelaLogin extends AppCompatActivity {
                                         context.startActivity(i);
                                         finish();
                                     }else{
-                                        Log.i("aff", "111"+email+senha);
                                         Toast.makeText(context, "Dados incorretos", Toast.LENGTH_SHORT).show();
                                     }
                                 } catch (JSONException e) {

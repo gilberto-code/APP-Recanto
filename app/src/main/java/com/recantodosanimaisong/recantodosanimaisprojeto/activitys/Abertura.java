@@ -19,26 +19,15 @@ import java.util.Random;
 
 public class Abertura extends AppCompatActivity {
 
-    //private FirebaseAuth authusuario = FirebaseAuth.getInstance();
-    private ImageView imageAbertura;
-    private TextView textAbertura;
+     ImageView imageAbertura;
+     TextView textAbertura;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_abertura );
 
-
         imageAbertura = findViewById( R.id.imageAbertura );
         textAbertura = findViewById( R.id.textAbertura );
-
-
-//        SharedPreferences.Editor editor =
-//                getSharedPreferences(Links.LOGIN_PREFERENCE, 0).edit();
-//        editor.putString("email", null);
-//        editor.putString("senha", null);
-//        editor.putInt("isAdm", 0);
-//        editor.commit();
-
 
         final Handler handle = new Handler();
         handle.postDelayed(new Runnable() {
@@ -57,22 +46,18 @@ public class Abertura extends AppCompatActivity {
             public void run() {
                 SharedPreferences prefs = getSharedPreferences(Links.LOGIN_PREFERENCE, 0);
                 String email= prefs.getString("email", null);
-                Log.i("aff", email+"");
-
 
                 if(email == null){
                     Intent i = new Intent(getApplicationContext(), TelaLogin.class);
                     startActivity(i);
-                    // Fecha esta activity
                     finish();
                 }else{
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(i);
-                    // Fecha esta activity
                     finish();
                 }
             }
-        }, 2000);
+        }, 0);
 
     }
 }

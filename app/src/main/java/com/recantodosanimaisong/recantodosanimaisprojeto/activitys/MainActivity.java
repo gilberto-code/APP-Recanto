@@ -33,10 +33,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById( R.id.toolbar );
         setSupportActionBar( toolbar );
 
-        //ACRESCENTEI ESSAS DUAS LINHAS - PENDENTE - TESTAR - CHECAR - VERIFICAR
-        //Thread estaThread = Thread.currentThread();
-        //estaThread.setUncaughtExceptionHandler(new MyUncaughtException());
-
         DrawerLayout drawer = (DrawerLayout) findViewById( R.id.drawer_layout );
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle( this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
         drawer.addDrawerListener( toggle );
@@ -89,7 +85,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            startActivity(i);
         }
         else if (id == R.id.nav_animais) {
-            //Toast.makeText( getApplicationContext(), "Adoção", Toast.LENGTH_SHORT ).show();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             AnimaisFragment animaisFragment = new AnimaisFragment();
             fragmentTransaction.replace( R.id.fragment_container, animaisFragment );
@@ -106,13 +101,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction.commit();
         }
         else if (id == R.id.nav_site) {
-            //Toast.makeText( getApplicationContext() ,"Site",Toast.LENGTH_SHORT ).show();
             String url = "https://github.com/gilberto-code/";
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.setData( Uri.parse(url));
             startActivity(i);
         }else if (id == R.id.nav_facebook) {
-            //Toast.makeText( getApplicationContext() ,"Facebook",Toast.LENGTH_SHORT ).show();
             String url = "https://www.facebook.com/recantodosanimaisourobranco/";
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.setData( Uri.parse(url));
@@ -124,7 +117,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction.commit();
         }
         else if (id == R.id.nav_cadastrar_ainimal) {
-
             if(isAdm == 0){
                 Toast.makeText(getApplicationContext(), "Permissão negada, somente para administradores", Toast.LENGTH_SHORT).show();
             }else{

@@ -14,37 +14,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Conexao.Links;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Usuario;
-import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Animal;
 import com.recantodosanimaisong.recantodosanimaisprojeto.Model.Mysingleton;
 import com.recantodosanimaisong.recantodosanimaisprojeto.R;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Map;
 
 public class CadastrarUsuario extends AppCompatActivity {
@@ -143,7 +133,7 @@ public class CadastrarUsuario extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         loading.dismiss();
-                        Log.i("aff",response);
+
                         if(response.contains("Duplicate entry")){
                             Toast.makeText( getApplicationContext(),
                                     "Falha - Usuário já Cadastrado", Toast.LENGTH_LONG ).show();
@@ -176,7 +166,7 @@ public class CadastrarUsuario extends AppCompatActivity {
                         .setPrettyPrinting()
                         .serializeNulls()
                         .create();
-                Log.i("oque sera" ,gson.toJson(usuario));
+
                 params.put("usuario", gson.toJson(usuario));
                 return params;
             }

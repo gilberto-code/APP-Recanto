@@ -54,7 +54,7 @@ public class AnimaisFragment extends Fragment {
     public AnimaisFragment() {}
     private RecyclerView recyclerView;
     private Animal animal;
-    private Button btn_filtrar_animais;
+
 
     private DAO_Animal dao_animal = new DAO_Animal();
 
@@ -64,8 +64,6 @@ public class AnimaisFragment extends Fragment {
 
         View view = inflater.inflate( R.layout.fragment_animais, container, false );
         recyclerView = view.findViewById( R.id.recycler_animais );
-        btn_filtrar_animais = view.findViewById( R.id.btn_filtrar_animais );
-
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.addOnItemTouchListener(
@@ -91,12 +89,7 @@ public class AnimaisFragment extends Fragment {
 
             }
         } ) );
-        btn_filtrar_animais.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showAlertDialogButtonClicked();
-            }
-        });
+
         carregarLista();
         //Log.i( "CARREGAR" ,animais.size()+"size" );
         //Log.i( "CARREGAR", animais.size()+"" );

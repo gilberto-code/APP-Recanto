@@ -22,19 +22,19 @@ import java.io.InputStream;
 
 public class DadosAnimalAdotado extends AppCompatActivity {
 
-    private Animal_Adotado animal_adotado;
-    private TextView text_nome;
-    private TextView text_especie;
-    private TextView text_idade;
-    private TextView text_raca;
-    private TextView text_cor;
-    private TextView text_porte;
-    private TextView text_sexo;
-    private TextView text_vacinado;
-    private TextView text_doencas;
-    private TextView text_castrado;
-    private TextView text_descricao;
-    private ImageView imagemAnimalDesc;
+     Animal_Adotado animal_adotado;
+     TextView text_nome;
+     TextView text_especie;
+     TextView text_idade;
+     TextView text_raca;
+     TextView text_cor;
+     TextView text_porte;
+     TextView text_sexo;
+     TextView text_vacinado;
+     TextView text_doencas;
+     TextView text_castrado;
+     TextView text_descricao;
+     ImageView imagemAnimalDesc;
 
 
 
@@ -42,7 +42,6 @@ public class DadosAnimalAdotado extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dados_animal_adotado);
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -52,7 +51,6 @@ public class DadosAnimalAdotado extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-
 
         text_nome= findViewById( R.id.textNomeAnimalDesc);
         text_especie= findViewById( R.id.especieAnimalDesc);
