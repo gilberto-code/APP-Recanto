@@ -24,27 +24,21 @@ https://dev.mysql.com/downloads/workbench/
 
 
 
-# Aplicativo em Funcionamento
-### Home
-![](images/home.png)
+# Prints do Aplicativo
+<div class="box">
+  <img src="images/home.png" alt="drawing" width="300" style="vertical-align:middle;margin:50px 0px"/>
+  <img src="images/menu.png" alt="drawing" width="300"/>
+  <img src="images/animais.png" alt="drawing" width="300"/>
+  <img src="images/adotados.png" alt="drawing" width="300"/>
+  <img src="images/conta.png" alt="drawing" width="300"/>
+  <img src="images/cadastro.png" alt="drawing" width="300"/>
+  
+</div>
 
-### Home
-![](images/menu.png)
+# Pedido de Adoção em Funcionamento
+<img src="images/video.gif" alt="drawing" width="300"/>
 
-### Cadastro Animal
-![](images/animais.png)
 
-### Tabelas
-![](images/adotados.png)
-
-### Adotar
-![](images/pedidos.png)
-
-### Cadastro Usuário
-![](images/conta.png)
-
-### Sobre
-![](images/cadastro.png)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
