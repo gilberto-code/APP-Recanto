@@ -89,7 +89,7 @@ public class Meus_Dados extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_meus__dados, container, false);
-
+        getActivity().setTitle("Meus Dados");
 
         ed_nome = view.findViewById( R.id.ed_nome);
         ed_telefone = view.findViewById( R.id.ed_telefone);

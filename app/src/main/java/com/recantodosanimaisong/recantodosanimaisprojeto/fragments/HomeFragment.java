@@ -1,10 +1,12 @@
-package com.recantodosanimaisong.recantodosanimaisprojeto;
+package com.recantodosanimaisong.recantodosanimaisprojeto.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.recantodosanimaisong.recantodosanimaisprojeto.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,6 +49,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getActivity().setTitle("Home");
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);

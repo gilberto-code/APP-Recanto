@@ -62,6 +62,7 @@ public class Animais_Adotados extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate( R.layout.fragment_animais__adotados, container, false );
+        getActivity().setTitle("Animais Adotados");
         recyclerView = view.findViewById( R.id.recycler_animais_adotados );
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.addOnItemTouchListener( new RecyclerItemClickListener( getContext()

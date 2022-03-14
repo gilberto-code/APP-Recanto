@@ -63,6 +63,7 @@ public class AnimaisFragment extends Fragment {
 
 
         View view = inflater.inflate( R.layout.fragment_animais, container, false );
+        getActivity().setTitle("Animais para Adoção");
         recyclerView = view.findViewById( R.id.recycler_animais );
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

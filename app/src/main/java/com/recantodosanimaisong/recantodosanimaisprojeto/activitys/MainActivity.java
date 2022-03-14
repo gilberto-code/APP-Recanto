@@ -11,13 +11,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.recantodosanimaisong.recantodosanimaisprojeto.Conexao.Links;
-import com.recantodosanimaisong.recantodosanimaisprojeto.HomeFragment;
+import com.recantodosanimaisong.recantodosanimaisprojeto.fragments.HomeFragment;
 import com.recantodosanimaisong.recantodosanimaisprojeto.R;
 import com.recantodosanimaisong.recantodosanimaisprojeto.fragments.AnimaisFragment;
 import com.recantodosanimaisong.recantodosanimaisprojeto.fragments.Animais_Adotados;
@@ -90,8 +89,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_home) {
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            AnimaisFragment animaisFragment = new AnimaisFragment();
-            fragmentTransaction.replace( R.id.fragment_container, animaisFragment );
+            HomeFragment homeFragment = new HomeFragment();
+            fragmentTransaction.replace( R.id.fragment_container, homeFragment );
             fragmentTransaction.commit();
         }
         else if (id == R.id.nav_animais) {

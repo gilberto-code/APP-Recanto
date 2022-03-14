@@ -66,7 +66,7 @@ public class PedidosFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_pedidos, container, false);
-
+        getActivity().setTitle("Meus Pedidos de Adoção");
         recyclerPedido = view.findViewById(R.id.recyclerPedido);
         recyclerPedido.setLayoutManager(new LinearLayoutManager(getContext()));
 

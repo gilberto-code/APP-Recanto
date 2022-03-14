@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/drawable-v21/ic_add_circle_cinza_24dp.xml" value="0.19907407407407407" />
+        <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/drawable/ic_add_circle_cinza_24dp.xml" value="0.240625" />
         <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/drawable/side_nav_bar.xml" value="0.240625" />
         <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/activity_abertura.xml" value="0.22" />
         <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/activity_adotar.xml" value="0.33" />
@@ -21,13 +23,14 @@
         <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/fragment_animais__adotados.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/fragment_cadastrar_adotante.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/fragment_cadastro_animal.xml" value="0.3245481927710843" />
-        <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/fragment_home.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/fragment_home.xml" value="0.34782608695652173" />
         <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/fragment_meus__dados.xml" value="0.21041666666666667" />
         <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/fragment_pedidos.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/layout_alert_custumer.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/nav_header_main.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/layout/pesquisa_alert_custumer.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/menu/activity_main_drawer.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Gilberto/AndroidStudioProjects/RECANTO/app/src/main/res/menu/main.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Gilberto/Desktop/projeto17_11/Projeto_Velho/app/src/main/res/drawable/side_nav_bar.xml" value="0.240625" />
         <entry key="..\:/Users/Gilberto/Desktop/projeto17_11/Projeto_Velho/app/src/main/res/layout/fragment_cadastro_animal.xml" value="0.22146739130434784" />
       </map>

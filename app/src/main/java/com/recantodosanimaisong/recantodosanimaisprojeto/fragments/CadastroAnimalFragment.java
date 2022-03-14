@@ -84,6 +84,7 @@ public class CadastroAnimalFragment extends Fragment implements AdapterView.OnIt
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate( R.layout.fragment_cadastro_animal, container, false );
+        getActivity().setTitle("Cadastro Animal");
         cadastrar= view.findViewById( R.id.btn_cadastrar_animal );
         adc_foto= view.findViewById( R.id.btn_adiconar_imagem );
         adc_foto_camera= view.findViewById( R.id.btn_adiconar_imagem_camera );
